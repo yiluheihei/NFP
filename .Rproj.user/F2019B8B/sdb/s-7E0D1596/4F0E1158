@@ -1,0 +1,18 @@
+{
+    "contents" : "#' The NFP package\n#'\n#' This package implementation the applications of network finger print method.\n#'\n#' @name NFP\n#' @docType package\n#'\n#' @importFrom magrittr extract2 %>%\n#' @importFrom plyr laply llply\n#' @importFrom KEGGgraph getKGMLurl parseKGML2Graph\n#' @importFrom igraph igraph.from.graphNEL V get.data.frame graph.data.frame V<-\n#' @importFrom apcluster apcluster preferenceRange\n#' @importFrom ggplot2 ggplot geom_point geom_segment\n#' @importFrom stringr str_replace\n#' @importFrom dplyr filter\n#' @importFrom graph nodeDataDefaults<-\nNULL\n",
+    "created" : 1437354064468.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "656376344",
+    "id" : "4F0E1158",
+    "lastKnownWriteTime" : 1437359218,
+    "path" : "L:/work/NFP/R/NFP.R",
+    "project_path" : "R/NFP.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "type" : "r_source"
+}

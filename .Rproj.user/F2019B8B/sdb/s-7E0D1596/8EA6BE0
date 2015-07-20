@@ -1,0 +1,17 @@
+{
+    "contents" : "Package: NFP\nType: Package\nTitle: Network finger print\nVersion: 0.99.0\nDate: 2015-7-20\nAuthor: Yang Cao, Fei Li\nMaintainer: Yang Cao <yiluheihei@gmail.com>\nDescription: An implementation of the network finger print framework.\nDepends:\n    R (>= 3.2.0)\nImports:\n    igraph,\n    stringr,\n    magrittr,\n    plyr,\n    ggplot2,\n    apcluster,\n    KEGGgraph,\n    graph,\n    dplyr\nSuggests:\n    knitr,\n    methods\nVignetteBuilder: knitr\nLicense: GPL (>= 2)\nLazyData: yes\n",
+    "created" : 1437354752184.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4278406125",
+    "id" : "8EA6BE0",
+    "lastKnownWriteTime" : 1437361330,
+    "path" : "L:/work/NFP/DESCRIPTION",
+    "project_path" : "DESCRIPTION",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "type" : "dcf"
+}

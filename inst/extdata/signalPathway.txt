@@ -1,0 +1,140 @@
+03020	RNA polymerase
+03022	Basal transcription factors
+03040	Spliceosome
+03010	Ribosome
+00970	Aminoacyl-tRNA biosynthesis
+03013	RNA transport
+03015	mRNA surveillance pathway
+03008	Ribosome biogenesis in eukaryotes
+03060	Protein export
+04141	Protein processing in endoplasmic reticulum
+04130	SNARE interactions in vesicular transport
+04120	Ubiquitin mediated proteolysis
+04122	Sulfur relay system
+03050	Proteasome
+03018	RNA degradation
+03030	DNA replication
+03410	Base excision repair
+03420	Nucleotide excision repair
+03430	Mismatch repair
+03440	Homologous recombination
+03450	Non-homologous end-joining
+03460	Fanconi anemia pathway
+02010	ABC transporters
+02060	Phosphotransferase system (PTS)
+03070	Bacterial secretion system
+02020	Two-component system
+04014	Ras signaling pathway
+04015	Rap1 signaling pathway
+04010	MAPK signaling pathway
+04012	ErbB signaling pathway
+04310	Wnt signaling pathway
+04330	Notch signaling pathway
+04340	Hedgehog signaling pathway
+04350	TGF-beta signaling pathway
+04390	Hippo signaling pathway
+04370	VEGF signaling pathway
+04630	Jak-STAT signaling pathway
+04064	NF-kappa B signaling pathway
+04668	TNF signaling pathway
+04066	HIF-1 signaling pathway
+04068	FoxO signaling pathway
+04020	Calcium signaling pathway
+04070	Phosphatidylinositol signaling system
+04071	Sphingolipid signaling pathway
+04024	cAMP signaling pathway
+04022	cGMP-PKG signaling pathway
+04151	PI3K-Akt signaling pathway
+04152	AMPK signaling pathway
+04150	mTOR signaling pathway
+04075	Plant hormone signal transduction
+04080	Neuroactive ligand-receptor interaction
+04060	Cytokine-cytokine receptor interaction
+04512	ECM-receptor interaction
+04514	Cell adhesion molecules (CAMs)
+04144	Endocytosis
+04145	Phagosome
+04142	Lysosome
+04146	Peroxisome
+04140	Regulation of autophagy
+02030	Bacterial chemotaxis
+02040	Flagellar assembly
+04810	Regulation of actin cytoskeleton
+04110	Cell cycle
+04114	Oocyte meiosis
+04210	Apoptosis
+04115	p53 signaling pathway
+04510	Focal adhesion
+04520	Adherens junction
+04530	Tight junction
+04540	Gap junction
+04550	Signaling pathways regulating pluripotency of stem cells
+04640	Hematopoietic cell lineage
+04610	Complement and coagulation cascades
+04611	Platelet activation
+04620	Toll-like receptor signaling pathway
+04621	NOD-like receptor signaling pathway
+04622	RIG-I-like receptor signaling pathway
+04623	Cytosolic DNA-sensing pathway
+04650	Natural killer cell mediated cytotoxicity
+04612	Antigen processing and presentation
+04660	T cell receptor signaling pathway
+04662	B cell receptor signaling pathway
+04664	Fc epsilon RI signaling pathway
+04666	Fc gamma R-mediated phagocytosis
+04670	Leukocyte transendothelial migration
+04672	Intestinal immune network for IgA production
+04062	Chemokine signaling pathway
+04911	Insulin secretion
+04910	Insulin signaling pathway
+04922	Glucagon signaling pathway
+04923	Regulation of lipolysis in adipocytes
+04920	Adipocytokine signaling pathway
+03320	PPAR signaling pathway
+04912	GnRH signaling pathway
+04913	Ovarian steroidogenesis
+04915	Estrogen signaling pathway
+04914	Progesterone-mediated oocyte maturation
+04917	Prolactin signaling pathway
+04921	Oxytocin signaling pathway
+04918	Thyroid hormone synthesis
+04919	Thyroid hormone signaling pathway
+04916	Melanogenesis
+04614	Renin-angiotensin system
+04260	Cardiac muscle contraction
+04261	Adrenergic signaling in cardiomyocytes
+04270	Vascular smooth muscle contraction
+04970	Salivary secretion
+04971	Gastric acid secretion
+04972	Pancreatic secretion
+04976	Bile secretion
+04973	Carbohydrate digestion and absorption
+04974	Protein digestion and absorption
+04975	Fat digestion and absorption
+04977	Vitamin digestion and absorption
+04978	Mineral absorption
+04962	Vasopressin-regulated water reabsorption
+04960	Aldosterone-regulated sodium reabsorption
+04961	Endocrine and other factor-regulated calcium reabsorption
+04964	Proximal tubule bicarbonate reclamation
+04966	Collecting duct acid secretion
+04724	Glutamatergic synapse
+04727	GABAergic synapse
+04725	Cholinergic synapse
+04728	Dopaminergic synapse
+04726	Serotonergic synapse
+04720	Long-term potentiation
+04730	Long-term depression
+04723	Retrograde endocannabinoid signaling
+04721	Synaptic vesicle cycle
+04722	Neurotrophin signaling pathway
+04744	Phototransduction
+04740	Olfactory transduction
+04742	Taste transduction
+04750	Inflammatory mediator regulation of TRP channels
+04320	Dorso-ventral axis formation
+04360	Axon guidance
+04380	Osteoclast differentiation
+04710	Circadian rhythm
+04713	Circadian entrainment
+04626	Plant-pathogen interaction

@@ -1,0 +1,18 @@
+{
+    "contents" : "#' @title  Load the kegg signal pathway map as the reference net\n#'\n#' @description This function generates the well-studied KEGG signal pathway\n#' which was taken as the reference net.\n#'\n#' @return  a igraph list which represents the kegg signal pathway\n#'\n#' @export\n\nloadKEGGRefNet <- function(){\n  pathway_ID <- system.file('extdata/signalPathway.txt',package='NFP') %>%\n    read.delim(stringsAsFactors = FALSE,header = FALSE,colClasses = 'character') %>%\n    extract2(1)\n  human_pathway <- system.file('extdata/humanPathway.txt',package='NFP') %>%\n    read.delim(stringsAsFactors = FALSE,\n      header = FALSE,colClasses = 'character') %>%\n    extract2(1)\n  human_signalpathway <- intersect(pathway_ID,human_pathway)\n  human_signalpathway <- human_signalpathway[-125] ## ? bug\n  KEGG_graph <- human_signalpathway %>% laply(getKGMLurl,organism = 'hsa') %>%\n    llply(parseKGML2Graph,.progress = 'text') %>% llply(igraph.from.graphNEL)\n  names(KEGG_graph) <- human_signalpathway\n  return(KEGG_graph)\n}\n",
+    "created" : 1437353675712.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1931858297",
+    "id" : "89EE544C",
+    "lastKnownWriteTime" : 1437357679,
+    "path" : "L:/work/NFP/R/loadKEGGRefNet.R",
+    "project_path" : "R/loadKEGGRefNet.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "type" : "r_source"
+}
