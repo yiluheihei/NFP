@@ -19,6 +19,7 @@ calc_cluster_score <- function(cluster,node1,node2,gene_sim){
  }
  else
    LS <- 0
+ return(LS)
 }
 
 #' calculate the similarity scores between two networks
