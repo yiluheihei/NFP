@@ -7,7 +7,7 @@ Author: Yang Cao, Fei Li
 Maintainer: Yang Cao <yiluheihei@gmail.com>
 Description: An implementation of the network finger print framework.
 Depends:
-    R (>= 3.2.0)
+    R (>= 3.2.0), graph
 Imports:
     igraph,
     stringr,
@@ -16,7 +16,6 @@ Imports:
     ggplot2,
     apcluster,
     KEGGgraph,
-    graph,
     dplyr
 Suggests:
     knitr,
