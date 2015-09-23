@@ -34,3 +34,9 @@ net1=igraph.from.graphNEL(parseKGML2Graph(getKGMLurl("04630",organism = 'hsa')))
 net2=igraph.from.graphNEL(parseKGML2Graph(getKGMLurl("04650",organism = 'hsa')))
 temp=calc_sim_score(net1,net2,nperm =1, plot = TRUE)
 
+##=======================================================
+##                       YANG
+##=======================================================
+library(NFP)
+ kegg_refnet <- loadKEGGRefNet()
+

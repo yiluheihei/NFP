@@ -18,7 +18,7 @@
 \author{Yang Cao, Fei Li, Xiaochen Bo}
 
 \begin{document}
-\SweaveOpts{concordance=TRUE}
+%\SweaveOpts{concordance=TRUE}
 
 <<include=FALSE>>=
 library(knitr)
@@ -42,33 +42,56 @@ opts_chunk$set(cache=TRUE,cache.path="cache/NFP")
 
 This manual is a brief introduction to structure, functions and usage of
 \emph{NFP} package. The \emph{NFP} package provides a set of functions to
-support Network fingerprint algorithm: a biomedical network is characterized as a spectrum-like vector called “network fingerprint”.
+support knowledge-based network fingerprint framework, which was described in
+\citep{cui2015network}. A biomedical network is characterized as a spectrum-like
+vector called “network fingerprint”, which contains similarities to basic
+reference networks. This framework provides a more intuitive way to decipher
+molecular networks, especially for large-scale network comparisons and clustering analyses.
 
+The three main features of \emph{NFP}:
 
+ \begin{itemize}
+    \item Basic reference networks (KEGG signal pathway networks) generation.
+    \item Network comparison, which encompasses network merging, annotation and
+    similarity scoring.
+    \item Network standardization.
+  \end{itemize}
 
 \subsection{Installation}
 
-
 \emph{NFP} requires these packages: \emph{magrittr}, \emph{igraph}, \emph{plyr},
 \emph{ggplot2}, \emph{apcluster}, \emph{dplyr}, \emph{stringr}, \emph{plyr} and
-\emph{KEGGgraph}. Since \emph{NFP} is on CRAN or Bioconductor, users can install
-the latest development version from github. To install packages from GitHub, you
-first need install the devtools package on your system with
+\emph{KEGGgraph}. These should be installed automatically when you install \emph{mmnet} with biocLite() as follows:
+
+<<install-pkg, eval=FALSE>>==
+## install release version of mmnet
+source("http://bioconductor.org/biocLite.R")
+biocLite("NFP")
+
+##install the latest development version
+useDevel()
+biocLite("NFP")
+@
+
+Or users can install the latest development version from github. To install packages from GitHub, you first need install the devtools package on your system with
 `install.packages("devtools")`. Note that devtools sometimes needs some extra
 non-R software on your system -- more specifically, an Rtools download for
 Windows or Xcode for OS X.
 
-<<install-pkg, eval=FALSE>>==
+<<install-pkg-github, eval=FALSE>>==
 ## install NFP from github
-if (!require(devtools)
+if (!require(devtools))
   install.packages("devtools")
 devtools::install_github("yiluheihei/NFP")
 @
 
 After installation, the \emph{NFP} is ready to load into the current workspace
-by the following codes to the current workspace by typing or pasting the following codes:
+by the following codes to the current workspace by typing or pasting the
+following codes:
 
-
+<<load-pkg,eval=TRUE, include=FALSE>>==
+library(NFP)
+@
 <<load-pkg2,eval=FALSE>>==
 library(NFP)
 @
