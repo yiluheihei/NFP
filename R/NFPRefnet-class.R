@@ -26,7 +26,7 @@
 #'@slot group, a character vector whose length is the same with \emph{Refnet},
 #'the group names of basic networks.
 #'
-#'@slot network.names, names of the basic networks, with the same data structure
+#'@slot name, names of the basic networks, with the same data structure
 #'with \emph{Refnet}.
 #'
 #'@slot organism, character, indicating the activation organism of basic networks.
@@ -40,7 +40,7 @@
 #'      \item{subnet, \code{signature(object = "NFPRefnet")}:
 #'        subset basic networks, e.g. a group of a networks or same networks of
 #'        a given group}
-#'      \item{names, \code{signature(object = "NFPRefnet")}:
+#'      \item{refnet_names, \code{signature(object = "NFPRefnet")}:
 #'        the  names of basic networks}
 #'      \item{show, \code{signature(object = "NFPRefnet")}:
 #'        display methods for S4 classes NFPRefnet, see also
@@ -51,7 +51,7 @@
 #' @rdname NFPRefnet-class
 #' @exportClass NFPRefnet
 #' @seealso \code{\link{show-methods}},
-#' \code{\link{network-methods}}, \code{\link{size-methods}},
+#' \code{\link{net-methods}}, \code{\link{refnet_name-methods}},
 #' \code{\link{group-methods}}, \code{\link{subnet-methods}}
 #'
 setOldClass('igraph')
@@ -113,7 +113,7 @@ setMethod("group",signature="NFPRefnet",
     group_num <- length(group_name)
     group_size <- lapply(object@name,length) %>%
       unlist
-    return(group <- list(name = group_name, num = group_num, size = group_size))
+    return(list(name = group_name, num = group_num, size = group_size))
   }
 )
 
@@ -121,20 +121,20 @@ setMethod("group",signature="NFPRefnet",
 #'
 #' This function extract names of NFP basic networks.
 #'
-#'@exportMethod name
-#'@rdname name-methods
-#'@name name-methods
+#'@exportMethod refnet_name
+#'@rdname refnet_name-methods
+#'@name refnet_name-methods
 #'@param object, \code{NFPRefnet} class
-#'@aliases name name-methods
+#'@aliases refnet_name refnet_name-methods
 #'@docType methods
 #'@seealso \code{\link{NFPRefnet-class}}
 #'@return a list
 
-setGeneric("name",
-  function(object){standardGeneric("name")})
-#' @rdname name-methods
-#' @aliases name name-methods
-setMethod("name",signature="NFPRefnet",
+setGeneric("refnet_name",
+  function(object){standardGeneric("refnet_name")})
+#' @rdname refnet_name-methods
+#' @aliases refnet_name refnet_name-methods
+setMethod("refnet_name",signature="NFPRefnet",
   function(object){
     object@name
   }
@@ -149,9 +149,9 @@ setMethod("name",signature="NFPRefnet",
 #'@name subnet-methods
 #'@param object, \code{NFPRefnet} class.
 #'@param group_name, character, indicating the groups to subset.
-#'@param numeric, character or NA, indices specifying elements to extract. This
+#'@param index, numeric, character or NA, indices specifying elements to extract. This
 #'parameter only works while \code{group_name} is a length-one character.
-#'Default is NA, indicating extract all the networks of a group. See
+#'Default is \emph{NULL}, indicating extract all the networks of a group. See
 #'\emph{details} for more information.
 #'
 #'@details This function help users to extract the specific networks for
@@ -160,29 +160,42 @@ setMethod("name",signature="NFPRefnet",
 #'
 #'Note, the \code{index} argument is only worked while one argument is
 #'consideration, which means group_name is a length-one character. And default
-#'is NA, indicating extract the entire group basic networks.
+#'is \emph{NULL}, indicating extract the entire group basic networks.
 #'
 #'@aliases subnet subnet-methods
 #'@docType methods
 #'@seealso \code{\link{NFPRefnet-class}}
 
 setGeneric("subnet",
-  function(object, group_name, index = NA){standardGeneric("subnet")})
+  function(object, group_name, index = NULL){standardGeneric("subnet")})
 #' @rdname subnet-methods
 #' @aliases subnet subnet-methods
 setMethod("subnet",signature="NFPRefnet",
-  function(object, group_name, index =NA){
+  function(object, group_name, index = NULL){
     net <- net(object)
+    ref_name  <- refnet_name(object)
     len <- length(group_name)
-    sub_net <- net[group_name]
+    organism <- object@organism
+    #sub_net <- net[[group_name]]
     if (len){
       if(len > 1){
-        if(!is.na(index))
-          warning("Parameter index is only worked while the group_name is length-one")
+        if(!is.null(index))
+          stop("Parameter index is only worked while the group_name is length-one")
+        sub_net <- llply(group_name,"[[", x = net)
+        net_name <- llply(group_name, "[[", x= ref_name)
       }
-      else
-        sub_net <- sub_net[index]
-      return(sub_net)
+      else{
+        if(is.null(index)){
+          sub_net <- net[[group_name]] %>% list
+          net_name <- ref_name[[group_name]] %>% list
+        }
+        else{
+          sub_net <- net[[group_name]][index] %>% list
+          net_name <-  ref_name[[group_name]][index] %>% list
+        }
+      }
+      return(new("NFPRefnet",network = sub_net, name = net_name, group = group_name,
+        organism = object@organism))
     }
     else
       return(NULL)
@@ -191,22 +204,28 @@ setMethod("subnet",signature="NFPRefnet",
 
 #' Show an Object
 #'
-#' show method short for NFPRefnet object, see \code{\link{show-method}}
+#' show method short for NFPRefnet object, see \code{\link[methods]{show}}
 #'
 #'@exportMethod show
 #'@param object, \code{NFPRefnet} class
 #'@docType methods
-#'@rdname show-methods
-#'@aliases show show-methods
+#'@rdname show_NFPRefnet-methods
+#'@aliases show_NFPRefnet show_NFPRefnet-methods
 setMethod("show", "NFPRefnet",
   function(object){
     organism <- object@organism
     ref_net <- object@network
+    group <- object@group
     group_len <- llply(ref_net,length) %>% unlist
     len <- sum(group_len)
-    group <- object@group
-    show_group <- data.frame(group_name = group, net_num = group_len)
-    row.names(show_group) <- NULL
+    ref_net_name <- refnet_name(object)
+    if (length(ref_net_name) == 1)
+      show_net_name <- paste0(ref_net_name[[1]][1], ", ...")
+    else
+      show_net_name <- sapply(ref_net_name,"[", 1) %>% paste0(', ...')
+    show_group <- data.frame(group_name = group, net_num = group_len,
+      net_name = show_net_name)
+    row.names(show_group) <- paste0("group",1:nrow(show_group))
     ## cat("Object of class ", class(object), "\n", sep = "")
     ## cat("\n")
     cat( "Basic networks of","organism", organism,"\n")

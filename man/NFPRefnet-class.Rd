@@ -15,7 +15,7 @@ elements contains a group of basic networks.}
 \item{\code{group,}}{a character vector whose length is the same with \emph{Refnet},
 the group names of basic networks.}
 
-\item{\code{network.names,}}{names of the basic networks, with the same data structure
+\item{\code{name,}}{names of the basic networks, with the same data structure
 with \emph{Refnet}.}
 
 \item{\code{organism,}}{character, indicating the activation organism of basic networks.
@@ -32,7 +32,7 @@ with \emph{Refnet}.}
      \item{subnet, \code{signature(object = "NFPRefnet")}:
        subset basic networks, e.g. a group of a networks or same networks of
        a given group}
-     \item{names, \code{signature(object = "NFPRefnet")}:
+     \item{refnet_names, \code{signature(object = "NFPRefnet")}:
        the  names of basic networks}
      \item{show, \code{signature(object = "NFPRefnet")}:
        display methods for S4 classes NFPRefnet, see also
@@ -41,7 +41,7 @@ with \emph{Refnet}.}
 }
 \seealso{
 \code{\link{show-methods}},
-\code{\link{network-methods}}, \code{\link{size-methods}},
+\code{\link{net-methods}}, \code{\link{refnet_name-methods}},
 \code{\link{group-methods}}, \code{\link{subnet-methods}}
 }
 

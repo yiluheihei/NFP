@@ -13,8 +13,6 @@ cluster.}
 \item{node1,}{a nodes vector of net1}
 
 \item{node2,}{a nodes vector of net2}
-
-\item{gene_sim,}{gene similarity matrix based on Gene Ontology}
 }
 \description{
 calculate the similarity score in a specific cluster.

@@ -4,17 +4,17 @@
 \alias{calc_sim_score}
 \title{Calculating the similarity scores}
 \usage{
-calc_sim_score(net, refnet, nperm = 100, plot = TRUE, ...)
+calc_sim_score(net, NFPnet, nperm = 100, ...)
 }
 \arguments{
-\item{net,}{a network, can be represented as adj matrix, edge list, or in
-igraph class}
+\item{net,}{a igraph network.}
 
-\item{refnet,}{a reference network list, one or more kegg pathway map, or
-customized networks, can be represented as adj matrix, edge list, or in
-igraph class}
+\item{NFPnet,}{a NFPRefnet object, one or more kegg pathway map, or
+customized networks. For more details see \code{\link{NFPRefnet-class}}.}
 
 \item{nperm,}{number of random networks for similarity score standardization}
+
+\item{...,}{arguments passed to apcluster}
 }
 \value{
 a similarity scoring vector,length is the same as the number of
@@ -23,5 +23,8 @@ networks
 \description{
 This function was used to calculate the similarity scores
 between a network and the reference network.
+}
+\seealso{
+\code{\link{NFPRefnet-class}}.
 }
 

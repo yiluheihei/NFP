@@ -6,6 +6,9 @@
 \usage{
 randomize_net(net)
 }
+\arguments{
+\item{net,}{igraph object}
+}
 \description{
 randomize the network
 }

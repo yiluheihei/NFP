@@ -19,7 +19,8 @@ Imports:
     dplyr
 Suggests:
     knitr,
-    methods
+    methods,
+    testthat
 VignetteBuilder: knitr
 License: GPL (>= 2)
 LazyData: yes

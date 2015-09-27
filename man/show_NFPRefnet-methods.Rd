@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFPRefnet-class.R
 \docType{methods}
 \name{show,NFPRefnet-method}
-\alias{show}
 \alias{show,NFPRefnet-method}
-\alias{show-methods}
+\alias{show_NFPRefnet}
+\alias{show_NFPRefnet-methods}
 \title{Show an Object}
 \usage{
 \S4method{show}{NFPRefnet}(object)
@@ -13,6 +13,6 @@
 \item{object,}{\code{NFPRefnet} class}
 }
 \description{
-show method short for NFPRefnet object, see \code{\link{show-method}}
+show method short for NFPRefnet object, see \code{\link[methods]{show}}
 }
 

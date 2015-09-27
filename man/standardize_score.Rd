@@ -4,7 +4,16 @@
 \alias{standardize_score}
 \title{standardize the similarity score}
 \usage{
-standardize_score(net, refnet, nperm, ...)
+standardize_score(net, NFPnet, nperm, ...)
+}
+\arguments{
+\item{net,}{igraph object}
+
+\item{NFPnet,}{NFPRefnet, the reference NFP networks}
+
+\item{nperm,}{permutation number for NFP standardization}
+
+\item{...,}{argument passed to calc_twonet_score}
 }
 \description{
 standardize the similarity score

@@ -7,18 +7,18 @@
 \alias{subnet-methods}
 \title{Subset the basic networks}
 \usage{
-subnet(object, group_name, index = NA)
+subnet(object, group_name, index = NULL)
 
-\S4method{subnet}{NFPRefnet}(object, group_name, index = NA)
+\S4method{subnet}{NFPRefnet}(object, group_name, index = NULL)
 }
 \arguments{
 \item{object,}{\code{NFPRefnet} class.}
 
 \item{group_name,}{character, indicating the groups to subset.}
 
-\item{numeric,}{character or NA, indices specifying elements to extract. This
+\item{index,}{numeric, character or NA, indices specifying elements to extract. This
 parameter only works while \code{group_name} is a length-one character.
-Default is NA, indicating extract all the networks of a group. See
+Default is \emph{NULL}, indicating extract all the networks of a group. See
 \emph{details} for more information.}
 }
 \description{
@@ -31,7 +31,7 @@ a specific group networks.subsequent analysis.
 
 Note, the \code{index} argument is only worked while one argument is
 consideration, which means group_name is a length-one character. And default
-is NA, indicating extract the entire group basic networks.
+is \emph{NULL}, indicating extract the entire group basic networks.
 }
 \seealso{
 \code{\link{NFPRefnet-class}}
