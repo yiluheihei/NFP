@@ -11,15 +11,15 @@ test_that('class of NFPRefnet and its components are as expected',{
 
 test_that('method refnet_name of NFPRefnet are as expected',{
   refnet.name <- refnet_name(kegg_refnet)
-  expect_that(refnet_name(kegg_refnet), is_a('list'))
-  expect_that(refnet.name, is_equivalent_to(4))
+  expect_that(refnet.name, is_a('list'))
+  expect_that(length(refnet.name), is_equivalent_to(4))
   ##expect_that(lengths(refnet.name), is_equivalent_to(c(22,28,15,69)))
 })
 
 test_that('method net of NFPRefnet are as expected',{
   net.NFP <- net(kegg_refnet)
   expect_that(net(kegg_refnet), is_a('list'))
-  expect_that(length(net.NFP), is_equivalent_to(4))
+  expect_that(length(net.NFP), is_identical_to(4L))
   ##expect_that(lengths(net.NFP), is_equivalent_to(c(22,28,15,69)))
 })
 
@@ -27,7 +27,7 @@ test_that('method group of NFPRefnet are as expected',{
   group.refnet <- group(kegg_refnet)
   expect_that(group(kegg_refnet), is_a('list'))
   expect_that(length(group(kegg_refnet)), is_identical_to(3L))
-  expect_that(group.refnet$num, is_identical_to(4))
+  expect_that(group.refnet$num, is_identical_to(4L))
   ##expect_that(group.refnet$size, is_equivalent_to(c(22,28,15,69)))
 })
 

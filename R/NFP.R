@@ -15,5 +15,5 @@
 #' element_text geom_line aes
 #' @importFrom stringr str_replace str_replace_all str_extract_all
 #' @importFrom dplyr filter
-#' @importFrom graph nodeDataDefaults<-
+#' @importFrom graph nodeDataDefaults<- nodes
 NULL

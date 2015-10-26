@@ -62,10 +62,18 @@ getPathwayList <- function(){
 load_KEGG_refnet  <- function(organism = 'hsa'){
   human_signalpathway <- getPathwayList()
   human_signalpathway[[4]] <- human_signalpathway[[4]][-62,]
+  nodes_standard <- function(x){
+    x@nodes = str_replace_all(nodes(x), paste0(organism,":"),'')
+    x.edge <- x@edgeL
+    names(x.edge) <- x@nodes
+    x@edgeL <- x.edge
+    return(x)}
   ref_net <- human_signalpathway %>%
     llply(. %>% extract2(1) %>% laply(getKGMLurl,organism = organism)) %>%
     llply(. %>% llply(parseKGML2Graph), .progress = 'text') %>%
-    llply(. %>% llply( igraph.from.graphNEL))
+    llply(. %>% llply(nodes_standard))
+    ## %>% llply(. %>% llply( igraph.from.graphNEL))
+
   group <- names(ref_net)
   names <- human_signalpathway %>% llply(. %>% extract2(2))
   ref_net_organism <- organism

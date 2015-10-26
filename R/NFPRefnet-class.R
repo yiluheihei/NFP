@@ -1,12 +1,20 @@
 .check.NFPRefnet <- function(object){
   if(!is(object, "NFPRefnet")) stop("object has to be of class \"NFPRefnet\" ")
   errors <- character()
-  if (!is.list(object@network))
+  if(!is.list(object@network))
     errors <- c(errors, "network must be a list object")
+  if(is.null(object@network))
+    errors <- c(errors, 'you must create your network first')
+  if(!length(object@group))
+    errors <- c(errors, 'group slot of NFPRefnet must be specified')
   if(!is.character(object@group))
     errors <- c(errors, "group must be a character")
+  if(is.null(object@name))
+    errors <- c(errors,'name slot of NFPRefnet must be specified')
   if(!is.list(object@name))
-    errors  <- c(errors, "name must be a list")
+    errors <- c(errors, "name must be a list")
+  if(is.null(object@organism))
+    errors <- c(errors, 'organism slot of NFPRefnet must be specified')
   if(!is.character(object@organism))
     errors  <- c(errors, "organism must be a character")
   if(length(errors) == 0){
@@ -20,7 +28,7 @@
 #'
 #'An S4 object for storing NFP reference network information.
 #'
-#'@slot Refnet, object of igraph list represents the basic networks, and each
+#'@slot Refnet, object of graphNEL list represents the basic networks, and each
 #'elements contains a group of basic networks.
 #'
 #'@slot group, a character vector whose length is the same with \emph{Refnet},
@@ -81,10 +89,10 @@ setGeneric("net",
 setMethod("net",signature="NFPRefnet",
   function(object){
     net <- object@network
-    names(net) <- object@group
-    net_names <- object@name
-    for (i in 1:length(net))
-      names(net[[i]]) <- net_names[[i]]
+    ##names(net) <- object@group
+    ##net_names <- object@name
+    ##for (i in 1:length(net))
+    ## names(net[[i]]) <- net_names[[i]]
     return(net)
   }
 )
@@ -111,6 +119,7 @@ setMethod("group",signature="NFPRefnet",
   function(object){
     group_name <- object@group
     group_num <- length(group_name)
+    net_name <- object@name
     group_size <- lapply(object@name,length) %>%
       unlist
     return(list(name = group_name, num = group_num, size = group_size))
@@ -173,16 +182,30 @@ setGeneric("subnet",
 setMethod("subnet",signature="NFPRefnet",
   function(object, group_name, index = NULL){
     net <- net(object)
+    names(net) <- group(object)$name
     ref_name  <- refnet_name(object)
+    names(ref_name) <- group(object)$name
     len <- length(group_name)
     organism <- object@organism
+    for(i in 1:length(index)){
+      if(is.character(index[[i]]))
+        index[[i]] <- match(index[[i]],ref_name[[i]])
+    }
     #sub_net <- net[[group_name]]
     if (len){
       if(len > 1){
-        if(!is.null(index))
-          stop("Parameter index is only worked while the group_name is length-one")
-        sub_net <- llply(group_name,"[[", x = net)
-        net_name <- llply(group_name, "[[", x= ref_name)
+        if(!is.null(index)){
+          if(length(group_name) != length(index))
+            stop('the length of index must be equal to the selected group numbers')
+          if(!is.list(index))
+            stop('index must a list with the same length with group_name')
+          sub_net <- mapply(function(x,y)net[[x]][y], group_name, index, SIMPLIFY = FALSE)
+          net_name <- mapply(function(x,y)ref_name[[x]][y], group_name, index, SIMPLIFY = FALSE)
+        }
+        else{
+          sub_net <- llply(group_name,"[[", x = net)
+          net_name <- llply(group_name, "[[", x= ref_name)
+        }
       }
       else{
         if(is.null(index)){
@@ -224,7 +247,7 @@ setMethod("show", "NFPRefnet",
     else
       show_net_name <- sapply(ref_net_name,"[", 1) %>% paste0(', ...')
     show_group <- data.frame(group_name = group, net_num = group_len,
-      net_name = show_net_name)
+        net_name = show_net_name)
     row.names(show_group) <- paste0("group",1:nrow(show_group))
     ## cat("Object of class ", class(object), "\n", sep = "")
     ## cat("\n")

@@ -212,10 +212,11 @@ setMethod("plot",signature = (x = "NFP"),
       use_series('group')
     sim_df <- data.frame(NFP_sim = nfp_score, group = nfp_refnet_group,
       refnet_index = 1:nrow(x@randomized_score))
+    network_num <- length(nfp_score)
     if(all(!is.na(nfp_score))){ # skip plot if sim is NA
-      p <- ggplot(sim_df,aes(x = refnet_index, y = NFP_sim)) +
-        scale_x_discrete(breaks = refnet_index, labels =  refnet_index) +
-        theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+      p <- ggplot(sim_df,aes(x = refnet_index, y = NFP_sim))
+        ##scale_x_discrete(breaks = 1:network_num, labels =  1:network_num) +
+        ##theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
       if(type == "point")
         print(p + geom_point(size = p_size, aes(color = group)))
       if(type == "line")

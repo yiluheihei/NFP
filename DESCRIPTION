@@ -1,26 +1,17 @@
 Package: NFP
 Type: Package
-Title: Network finger print
+Title: Network Fingerprint framework in R
 Version: 0.99.0
 Date: 2015-7-20
-Author: Yang Cao, Fei Li
+Author: Yang Cao, Fei Li, Haochen He
 Maintainer: Yang Cao <yiluheihei@gmail.com>
 Description: An implementation of the network finger print framework.
-Depends:
-    R (>= 3.2.0), graph
-Imports:
-    igraph,
-    stringr,
-    magrittr,
-    plyr,
-    ggplot2,
-    apcluster,
-    KEGGgraph,
-    dplyr
-Suggests:
-    knitr,
-    methods,
-    testthat
+Depends: R (>= 3.2.0), graph
+Imports: igraph, stringr, magrittr, plyr, ggplot2, apcluster,
+        KEGGgraph, dplyr
+Suggests: knitr, methods, testthat, BiocStyle, graphite
 VignetteBuilder: knitr
 License: GPL (>= 2)
 LazyData: yes
+NeedsCompilation: no
+Packaged: 2015-09-30 07:30:04 UTC; caoyang

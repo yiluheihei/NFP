@@ -22,7 +22,7 @@ calc_cluster_score <- function(cluster,node1,node2){
 
 #' calculate the similarity scores between two networks
 #'
-#' @param net1,  a igaph network
+#' @param net1,  a igraph network
 #' @param net2, same as net2
 #' @param ..., all other arguments are passed to apcluster
 
@@ -33,9 +33,11 @@ calc_twonet_score <- function(net1,net2, ...){
   subgraphwithbp <- function(net){
     if(!(exists('geneSimData') && typeof(geneSimData) == "double"))
       data(geneSimData)
-    node <- V(net)$name %>% str_replace('hsa:','')
+    ##node <- V(net)$name %>% str_replace(paste0(organism,':'),'')
+    node <- V(net)$name
     node_index <- node %>% match(row.names(geneSimData),nomatch = 0)
-    node_bp <- row.names(geneSimData)[node_index] %>% paste('hsa:',.,sep='')
+    ##node_bp <- row.names(geneSimData)[node_index] %>% paste(paste0(organism,':'),.,sep='')
+    node_bp <- row.names(geneSimData)[node_index]
     if(length(node_index) != length(node_bp)) {
       ##warning("nodes in network without BP annotation will be ignored!")
       return(induced.subgraph(net,node_bp))
@@ -48,8 +50,10 @@ calc_twonet_score <- function(net1,net2, ...){
   net2 %<>% subgraphwithbp
 
 
-  node1 <- V(net1)$name %>% str_replace('hsa:','')
-  node2 <- V(net2)$name %>% str_replace('hsa:','')
+  ##node1 <- V(net1)$name %>% str_replace(paste0(organism,':'), '')
+  ##node2 <- V(net2)$name %>% str_replace(paste0(organism,':'), '')
+  node1 <- V(net1)$name
+  node2 <- V(net2)$name
   node_index <- c(node1,node2) %>% match(row.names(geneSimData),nomatch = 0)
   gene_sim <- geneSimData[node_index,node_index]
 
@@ -72,12 +76,14 @@ calc_twonet_score <- function(net1,net2, ...){
 
 randomize_net <- function(net){
   #edge shuffle
+  ##net <- igraph.from.graphNEL(net)
   net <- rewire(net, keeping_degseq(niter = gsize(net) * 4))
 
   #node shuffle
   genes <- row.names(geneSimData)
   index <-  genes %>% length %>% sample(length(V(net)))
-  new_node <- genes[index] %>% paste0('hsa:',.)
+  ##new_node <- genes[index] %>% paste0(paste0(organism,':'),.)
+  new_node <- genes[index]
   V(net)$name <- new_node
   return(net)
 }
@@ -91,8 +97,10 @@ randomize_net <- function(net){
 standardize_score <- function(net,NFPnet,nperm,...){
   calc_random_score <- function(net,NFPnet,...){
     random_net <- randomize_net(net)
-    random_score <- lapply(net(NFPnet),function(x)lapply(x,
-      function(y)calc_twonet_score(random_net,y))) %>%
+    refnet <- net(NFPnet) %>%
+      llply(. %>% llply( igraph.from.graphNEL))
+    random_score <- lapply(refnet,
+      function(x)lapply(x, function(y)calc_twonet_score(random_net,y))) %>%
       lapply(. %>% lapply(. %>% extract2(1))) %>% unlist
     ##if (class(refnet) == 'list')
     ##  random_score <- llply(refnet,function(x)calc_twonet_score(random_net,x,...))
@@ -122,7 +130,8 @@ standardize_score <- function(net,NFPnet,nperm,...){
 #' @description This function was used to calculate the similarity scores
 #' between a network and the reference network.
 #'
-#' @param  net, a igraph network.
+#' @param  net, a graphNel object to represent the query biological networks,
+#' for more details see \code{\link[graph]{graphNEL}}
 #'
 #' @param  NFPnet, a NFPRefnet object, one or more kegg pathway map, or
 #' customized networks. For more details see \code{\link{NFPRefnet-class}}.
@@ -141,9 +150,12 @@ standardize_score <- function(net,NFPnet,nperm,...){
 
 
 calc_sim_score <- function(net,NFPnet,nperm = 100, ...){
-  if (class(net) != 'igraph')
+  if (class(net) != 'graphNEL')
     stop("Please ensure your network is in graphNEL class")
+  net <- igraph.from.graphNEL(net)
   refnet <- net(NFPnet)
+  refnet <- refnet %>%
+    llply(. %>% llply( igraph.from.graphNEL))
   sim_score_cluster  <- lapply(refnet,function(x)lapply(x,
     function(y)calc_twonet_score(net,y)))
   sim_score <- sim_score_cluster %>%

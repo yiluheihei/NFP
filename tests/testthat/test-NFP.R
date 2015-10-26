@@ -1,7 +1,17 @@
 data(kegg_refnet)
 
-query_net <- igraph.from.graphNEL(parseKGML2Graph(getKGMLurl("04630",
-  organism = 'hsa')))
+# query_net <- igraph.from.graphNEL(parseKGML2Graph(getKGMLurl("04630",
+#   organism = 'hsa')))
+
+nodes_standard <- function(x){
+  x@nodes = str_replace_all(nodes(x), paste0('hsa',":"),'')
+  x.edge <- x@edgeL
+  names(x.edge) <- x@nodes
+  x@edgeL <- x.edge
+  return(x)}
+
+query_net <- parseKGML2Graph(getKGMLurl("04630",
+  organism = 'hsa')) %>% nodes_standard
 
 ref_net <- subnet(kegg_refnet,kegg_refnet@group[1],1:5)
 
