@@ -5,12 +5,11 @@ This package implements the network fingerprint framework. A biomedical network 
 
 **Prerequisites**
 
-**NFP** is free available on [Bioconductor](www.bioconductor.org). You can 
-install the latest released version from Bioconductor as following:
+**NFP** is free available on [CRAN](https://cran.r-project.org). You can 
+install the latest released version as following:
 
 ```{r,eval=FALSE} 
-source("http://bioconductor.org/biocLite.R")
-biocLite("mmnet")
+install.packages("NFP")
 ```
 
 or the latest development version from github. To install packages from GitHub,

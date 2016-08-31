@@ -1,17 +1,39 @@
 Package: NFP
 Type: Package
-Title: Network Fingerprint framework in R
-Version: 0.99.0
-Date: 2015-7-20
+Title: Network Fingerprint Framework in R
+Version: 0.99.1
+Date: 2016-8-29
 Author: Yang Cao, Fei Li, Haochen He
 Maintainer: Yang Cao <yiluheihei@gmail.com>
-Description: An implementation of the network finger print framework.
-Depends: R (>= 3.2.0), graph
-Imports: igraph, stringr, magrittr, plyr, ggplot2, apcluster,
-        KEGGgraph, dplyr
-Suggests: knitr, methods, testthat, BiocStyle, graphite
+Description: An implementation of the network fingerprint framework. This method 
+  worked by making systematic comparisons to a set of well-studied "basic networks",
+  measuring both the functional and topological similarity.  A biological could be
+  characterized as a spectrum-like vector consisting of similarities to basic 
+  networks. It shows great potential in biological network study.
+Depends:
+    R (>= 3.2.0),
+    graph
+Imports:
+    igraph,
+    stringr,
+    magrittr,
+    plyr,
+    ggplot2,
+    apcluster,
+    KEGGgraph,
+    dplyr,
+    tidyr,
+    methods
+Suggests:
+    knitr,
+    testthat,
+    BiocStyle,
+    graphite,
+    NFPdata
+Additional_repositories: https://yiluheihei.github.io/datarepo/
 VignetteBuilder: knitr
 License: GPL (>= 2)
 LazyData: yes
 NeedsCompilation: no
-Packaged: 2015-09-30 07:30:04 UTC; caoyang
+Packaged: 2016-8-31 08:52:23 UTC; caoyang
+RoxygenNote: 5.0.1

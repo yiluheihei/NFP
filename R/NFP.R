@@ -12,8 +12,12 @@
 #' induced.subgraph as_adj
 #' @importFrom apcluster apcluster preferenceRange
 #' @importFrom ggplot2 ggplot geom_point geom_segment theme scale_x_discrete
-#' element_text geom_line aes
+#' element_text geom_line aes xlab ylab guides guide_legend
 #' @importFrom stringr str_replace str_replace_all str_extract_all
-#' @importFrom dplyr filter
+#' @importFrom dplyr filter bind_cols
 #' @importFrom graph nodeDataDefaults<- nodes
+#' @importFrom tidyr gather
+#' @importFrom methods is new show
+#' @importFrom stats sd
+#' @importFrom utils data install.packages read.delim2
 NULL

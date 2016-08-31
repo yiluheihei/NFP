@@ -70,12 +70,7 @@ The three main features of {\it NFP}:
 
 <<install-pkg, eval=FALSE>>==
 ## install release version of mmnet
-source("http://bioconductor.org/biocLite.R")
-biocLite("NFP")
-
-##install the latest development version
-useDevel()
-biocLite("NFP")
+install.packages('NFP')
 @
 
 Or users can install the latest development version from github. To install packages from GitHub, you first need install the devtools package on your system with
@@ -98,6 +93,15 @@ following codes:
 library(NFP)
 @
 
+
+Moreover, \Robject{geneSimData} used in our {\it NFP} package is stored in a external data repository {\it NFPdata} \url{https://github.com/yiluheihei/datarepo} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor blog post \url{http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/}. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
+
+<<data_package,eval=FALSE, include=FALSE>>==
+if (!require("NFPdata")) {
+    install_data_package()
+}
+@
+
 \section{Analysis Pipeline: from Basic Reference Network Generation to Network
 Networkfingerprint Visualization}
 
@@ -106,8 +110,7 @@ We will demonstrate go through an analysis pipeline to illustrate some of the ma
 \begin{enumerate}
 \item  Basic Reference Network Generation: prepare the well-known biomedical
 netowks as the NFP framework reference networks. Several pathway databases have
-been developed for biological network research, e.g. KEGG, Reactome (\url{www.reactome.org}). All of this pathway databases is well-stuied and can be used as the
-basic reference networks of NFP.
+been developed for biological network research, e.g. KEGG, Reactome (\url{www.reactome.org}). All of this pathway databases is well-stuied and can be used as the basic reference networks of NFP.
 
 \item Network fingerprint calculation: The similarity between two biomedical
 networks is calculated based on the following intition: grouping the nodes in
@@ -236,7 +239,7 @@ Simply, we choose the two pathway maps \Rcode{g} as a query network, and a
 subset networks of \Rcode{kegg\_refnet} as the reference networks. Then the NFP
 can be calculated as following:
 
-<<calc-NFP, eval=TRUE, echo=TRUE>>==
+<<calc-NFP, eval=FALSE, echo=TRUE>>==
 ## set g as the query network
 query_net <- g
 ## a subset of kegg_refnet, select the head five networks of group 1, 2
@@ -255,12 +258,15 @@ cluster <- cluster_info(NFP_score[[1]])
 
 \subsection{Network fingerprint visualization}
 
-{\it NFP} provides the \Rfunction{plot\_NFP} function to visualize the network fingerprint of a single query network.
+{\it NFP} provides the \Rfunction{plot\_NFP\_NFP} function to visualize the network fingerprint of a single query network.
 
-<<plot-nfp,echo=TRUE,eval=TRUE,fig=TRUE, fig.align='center',fig.cap='Plot a NFP object',dev='pdf',fig.show='hold',out.width='.8\\linewidth', out.height='.7\\linewidth'>>==
-plot(NFP_score[[1]])
+<<plot-nfp,echo=TRUE,eval=FALSE,fig.cap='Plot a NFP object',dev='pdf',fig.show='hold',out.width='.8\\linewidth', out.height='.7\\linewidth'>>==
+plot_NFP(NFP_score[[1]])
 @
 
+\begin{center} 
+\includegraphics[width=0.7\paperwidth]{nfp_plot.png} 
+\end{center}
 
 
 \section*{Session Information}

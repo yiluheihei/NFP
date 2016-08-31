@@ -155,15 +155,15 @@ setMethod("sub_NFP",signature="NFP",
 )
 
 
-#' Show an Object
+#' The show generic function
 #'
-#' show method short for NFP object, see \code{\link[methods]{show}}.
+#' Show a shor summary for NFP object, see \code{\link[methods]{show}}.
 #'
 #'@exportMethod show
 #'@param object, \code{NFP} object
 #'@docType methods
-#'@rdname show_NFP-methods
-#'@aliases show_NFP show_NFP-methods
+#'@rdname show-methods
+#'@aliases show show-methods
 setMethod("show", "NFP",
   function(object){
     para_name <- c("Number of ref networks", "Permutation number")
@@ -194,40 +194,48 @@ setMethod("show", "NFP",
 #'
 #' Function for visualization NFP results.
 #'
-#'@exportMethod plot
-#'@param x, \code{NFP} class
+#'@exportMethod plot_NFP
+#'@rdname plot_NFP-methods
+#'@name plot_NFP-methods
+#'@param object, \code{NFP} class
 #'@param type, types of the visaulization of \emph{NFP} object, point or line.
 #'Default is point.
-#'@param p_size, point size of plot, default is 3.
-#'@param l_size, line size of plot, default is 1.
+#'@param p_size, point size of plot, default is 2.
+#'@param l_size, line size of plot, default is 0.5.
+#'#'@aliases plot_NFP plot_NFP-methods
 #'@docType methods
-#'@rdname plot-methods
 #'@seealso \code{\link{NFP-class}}
-#'@aliases plot plot-methods
-setMethod("plot",signature = (x = "NFP"),
-  function(x, type = c('matchstick', 'line','point'), p_size = 3, l_size = 1){
+
+setGeneric("plot_NFP",
+  function(object, type = c('matchstick', 'line','point'), p_size = 2, l_size = 0.5)
+    {standardGeneric("plot_NFP")})
+#' @rdname plot_NFP-methods
+#' @aliases plot_NFP plot_NFP-methods
+
+setMethod("plot_NFP",'NFP',
+  function(object, type = c('matchstick', 'line','point'), p_size = 2, l_size = 0.5){
     type <- match.arg(type, c('matchstick', 'line','point'))
-    nfp_score <- x@standardized_score
-    nfp_refnet_group <- x@randomized_score %>%
-      use_series('group')
-    sim_df <- data.frame(NFP_sim = nfp_score, group = nfp_refnet_group,
-      refnet_index = 1:nrow(x@randomized_score))
-    network_num <- length(nfp_score)
-    if(all(!is.na(nfp_score))){ # skip plot if sim is NA
-      p <- ggplot(sim_df,aes(x = refnet_index, y = NFP_sim))
-        ##scale_x_discrete(breaks = 1:network_num, labels =  1:network_num) +
-        ##theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
-      if(type == "point")
-        print(p + geom_point(size = p_size, aes(color = group)))
-      if(type == "line")
-        print(p + geom_line(size = l_size, aes(color = group)))
+    if (class(object) == 'NFP'){
+      nfp_score <- object@standardized_score
+      nfp_refnet_group <- object@randomized_score %>%
+        use_series('group')
+      sim_df <- data.frame(NFP_sim = nfp_score, group = nfp_refnet_group,
+        refnet_index = 1:nrow(object@randomized_score))
+      network_num <- length(nfp_score)
+      if(all(!is.na(nfp_score))){ # skip plot if sim is NA
+        p <- ggplot(sim_df,aes(x = refnet_index, y = NFP_sim))
+        if(type == "point")
+          print(p + geom_point(size = p_size, aes(color = group)))
+        if(type == "line")
+          print(p + geom_line(size = l_size, aes(color = group, group = 1)))
+        if (type == 'matchstick')
+          print(p + geom_point(size = p_size, aes(color = group)) +
+              geom_segment(aes(xend = refnet_index, yend = 0, color = group),
+                size = l_size))
+      }
       else
-        print(p + geom_point(size = p_size, aes(color = group)) +
-          geom_segment(aes(xend = refnet_index, yend = 0, color = group),
-            size = l_size))
+        stop('NFP similarity score must be NA')
     }
-    else
-      stop('NFP similarity score must be NA')
   }
 )
 

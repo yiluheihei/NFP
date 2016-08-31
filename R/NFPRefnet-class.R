@@ -38,7 +38,7 @@
 #'with \emph{Refnet}.
 #'
 #'@slot organism, character, indicating the activation organism of basic networks.
-#'
+
 #' #'@section method:
 #'    \itemize{
 #'      \item{net, \code{signature(object = "NFPRefnet")}:
@@ -48,7 +48,7 @@
 #'      \item{subnet, \code{signature(object = "NFPRefnet")}:
 #'        subset basic networks, e.g. a group of a networks or same networks of
 #'        a given group}
-#'      \item{refnet_names, \code{signature(object = "NFPRefnet")}:
+#'      \item{refnet_name, \code{signature(object = "NFPRefnet")}:
 #'        the  names of basic networks}
 #'      \item{show, \code{signature(object = "NFPRefnet")}:
 #'        display methods for S4 classes NFPRefnet, see also
