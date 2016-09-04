@@ -94,7 +94,7 @@ library(NFP)
 @
 
 
-Moreover, \Robject{geneSimData} used in our {\it NFP} package is stored in a external data repository {\it NFPdata} \url{https://github.com/yiluheihei/datarepo} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor blog post \url{http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/}. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
+Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository {\it NFPdata} \url{https://github.com/yiluheihei/datarepo} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor blog post \url{http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/}. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
 
 <<data_package,eval=FALSE>>==
 if (!require("NFPdata")) {

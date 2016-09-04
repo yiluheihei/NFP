@@ -82,16 +82,23 @@ devtools::install_github(&quot;yiluheihei/NFP&quot;)
 <pre><code class="R">library(&quot;NFP&quot;)
 </code></pre>
 
+<p>Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository {\it NFPdata} \url{<a href="https://github.com/yiluheihei/datarepo">https://github.com/yiluheihei/datarepo</a>} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional_repositories field see The Coatless Professor blog post \url{<a href="http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional%5C_repositories-field/">http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/</a>}. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.</p>
+
+<pre><code>if (!require(&quot;NFPdata&quot;)) {
+    install_data_package()
+}
+</code></pre>
+
 <h2>Contributing</h2>
 
 <p>For very simple changes such as fixing typos, you can just edit the file by clicking the button <code>Edit</code>. 
 For more complicated changes, you will have to manually create a pull request after forking this repository.</p>
 
-<p>##License</p>
+<h2>License</h2>
 
 <p><code>NFP</code> is a free and open source software, licensed under GPL 2.0.</p>
 
-<p>##Reference</p>
+<h2>Reference</h2>
 
 <p><a href="http://www.nature.com/articles/srep13286">Cui X, He H, He F, et al. Network fingerprint: a knowledge-based characterization of biomedical networks. Scientific reports, 2015, 5.</a></p>
 
@@ -102,8 +109,14 @@ For more complicated changes, you will have to manually create a pull request af
     <ul>
       <li><a href="vignettes/NFP.pdf">NFP</a></li>
     </ul>
-        <h2>Authors</h2>
+    <h2>Authors</h2>
     <ul>
+      <li><a href="<a href='mailto:yiluheihei@gmail.com'>">Yang Cao</a></li>
+    </ul>
+    <h2>NFP_paper_results</h2>
+    <ul>
+      <li><a href="paper_results/sample_FOXM1_Kwoneel.rdata">FOXM1 network data</a></li>
+      <li><a href="paper_results/code.R">results source code</a></li>
     </ul>
   </div>
 </div>

@@ -31,16 +31,25 @@ After installation, you can load **NFP** into current workspace by typing or pas
  ```R
 library("NFP")
  ```
+
+ Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository {\it NFPdata} \url{https://github.com/yiluheihei/datarepo} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor blog post \url{http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/}. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
+
+```
+if (!require("NFPdata")) {
+    install_data_package()
+}
+```
+
 ## Contributing
 
 For very simple changes such as fixing typos, you can just edit the file by clicking the button `Edit`. 
 For more complicated changes, you will have to manually create a pull request after forking this repository.
  
-##License
+## License
 
 `NFP` is a free and open source software, licensed under GPL 2.0.
 
-##Reference
+## Reference
 
 [Cui X, He H, He F, et al. Network fingerprint: a knowledge-based characterization of biomedical networks. Scientific reports, 2015, 5.](http://www.nature.com/articles/srep13286)
 
