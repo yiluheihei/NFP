@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>NFP-class. NFP 0.99.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">NFP 0.99.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <h1><code>NFP-class</code></h1>
+
+<div class="row">
+  <div class="span8">
+        
+    <div class="Description">
+      <h2>Description</h2>
+
+      <p>An S4 object for storing network fingerprint similarity score information.</p>
+
+    </div>
+
+    <div class="Slots">
+      <h2>Slots</h2>
+
+      <p></p>
+
+      <p><dl>
+<dt><code>raw_score,</code></dt><dd>a numeric vector, network fingerprint based on reference
+networks before standardization.</dd></p>
+
+      <p><dt><code>randomized_score,</code></dt><dd>a data frame, the permulated similarity score.</dd></p>
+
+      <p><dt><code>standardized_score,</code></dt><dd>a numeric vector, the final standardized network fingerprint.</dd></p>
+
+      <p><dt><code>cluster,</code></dt><dd>an <em>APResult</em> list, more details see package **apcluster**,
+each element provides a cluster information of a
+biological network based on one reference networks.
+#&#39;@section method:
+   <ul>
+<li>perm_score, <code>signature(object = &quot;NFP&quot;)</code>:
+       extract the randomized similarity score
+     </li>
+<li>cluster_info, <code>signature(object = &quot;NFP&quot;)</code>:
+       extract the cluster information
+     </li>
+<li>sub_NFP, <code>signature(object = &quot;NFP&quot;)</code>:
+       subset of NFP object
+     </li>
+<li>plot, <code>signature(object, type = &quot;character&quot;, p_size = &quot;numeric&quot;, l_size = &#39;numeric&#39;)</code>:
+       plot NFP results
+     </li>
+<li>show, <code>signature(object = &quot;NFP&quot;)</code>:
+       display methods for S4 classes NFP, see also
+       <code><a href='http://www.rdocumentation.org/packages/methods/topics/show'>show</a></code>
+   </li>
+</ul>
+</dd></p>
+
+      <p></dl></p>
+
+    </div>
+      </div>
+  <div class="span4 sidebar">
+    <!-- <ul>
+      <li>NFP-class</li>
+    </ul>
+    <ul>
+      
+    </ul> -->
+
+    <h2>See also</h2>
+      <p><code><a href='show-methods.html'>show-methods</a></code>,
+<code><a href='http://www.rdocumentation.org/packages/apcluster/topics/plot-methods'>plot-methods</a></code>, <code><a href='perm_score-methods.html'>perm_score-methods</a></code>,
+<code><a href='cluster_info-methods.html'>cluster_info-methods</a></code>, <code><a href='sub_NFP-methods.html'>sub_NFP-methods</a></code></p>
+
+    
+
+
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>

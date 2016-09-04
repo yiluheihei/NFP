@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<title>Home. NFP 0.99.1</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Yang Cao, Fei Li, Haochen He">
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="css/bootstrap-responsive.css" rel="stylesheet">
+<link href="css/highlight.css" rel="stylesheet">
+<link href="css/staticdocs.css" rel="stylesheet">
+
+<!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+  </head>
+
+  <body>
+    <div class="navbar">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="index.html">NFP 0.99.1</a>
+      <div class="nav">
+        <ul class="nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reference.html">Reference</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    <div class="container">
+      <header>
+        
+      </header>
+      
+      <div class="row">
+  <div class="span8">
+    <h1>NFP</h1>
+
+<p>Network fingerprint analysis in R</p>
+
+<p>This package implements the network fingerprint framework. A biomedical network is characterized as a spectrum-like vector called “network fingerprint”, which contains similarities to basic networks. This knowledge-based multidimensional characterization provides a more intuitive way to decipher molecular networks, especially for large-scale network comparisons and clustering analyses</p>
+
+<p><strong>Prerequisites</strong></p>
+
+<p><strong>NFP</strong> is free available on <a href="https://cran.r-project.org">CRAN</a>. You can 
+install the latest released version as following:</p>
+
+<pre><code class="r,eval=FALSE">install.packages(&quot;NFP&quot;)
+</code></pre>
+
+<p>or the latest development version from github. To install packages from GitHub,
+you first need install the <strong>devtools</strong> package on your system with 
+<code>install.packages(&quot;devtools&quot;)</code>. Note that devtools sometimes needs some 
+extra non-R software on your system &ndash; more specifically, an Rtools download for
+Windows or Xcode for OS X. There&#39;s more information about devtools
+<a href="https://github.com/hadley/devtools">here</a>.</p>
+
+<pre><code class="r,eval=FALSE">if (!require(devtools) 
+  install.packages(&quot;devtools&quot;) 
+devtools::install_github(&quot;yiluheihei/NFP&quot;) 
+</code></pre>
+
+<p>After installation, you can load <strong>NFP</strong> into current workspace by typing or pasting the following codes:</p>
+
+<pre><code class="R">library(&quot;NFP&quot;)
+</code></pre>
+
+<h2>Contributing</h2>
+
+<p>For very simple changes such as fixing typos, you can just edit the file by clicking the button <code>Edit</code>. 
+For more complicated changes, you will have to manually create a pull request after forking this repository.</p>
+
+<p>##License</p>
+
+<p><code>NFP</code> is a free and open source software, licensed under GPL 2.0.</p>
+
+<p>##Reference</p>
+
+<p><a href="http://www.nature.com/articles/srep13286">Cui X, He H, He F, et al. Network fingerprint: a knowledge-based characterization of biomedical networks. Scientific reports, 2015, 5.</a></p>
+
+  </div>
+
+  <div class="span3 offset1 sidebar">
+    <h2>Vignettes</h2>
+    <ul>
+      <li><a href="vignettes/NFP.pdf">NFP</a></li>
+    </ul>
+        <h2>Authors</h2>
+    <ul>
+    </ul>
+  </div>
+</div>
+      
+      <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+<p>Built by <a href="https://github.com/hadley/staticdocs">staticdocs</a>. Styled with <a href="https://getbootstrap.com/2.0.4/">bootstrap</a>.</p>
+      </footer>
+    </div>
+  </body>
+</html>
