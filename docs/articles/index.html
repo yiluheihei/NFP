@@ -8,6 +8,17 @@
 
 <title>Articles • NFP</title>
 
+<script type="text/javascript">
+    function changeFrameHeight(){
+      var ifm= document.getElementById("vignette"); 
+      ifm.height=document.documentElement.clientHeight;
+    }
+    
+    window.onresize=function(){  
+      changeFrameHeight();  
+    }   
+</script>
+
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
@@ -41,14 +52,5 @@
       <iframe src="NFP.pdf" id="vignette" onload="changeFrameHeight()" width = "100%" frameborder="0" scrolling="no"></iframe>
 
   </body>
-  <script type="text/javascript">
-    function changeFrameHeight(){
-      var ifm= document.getElementById("vignette"); 
-      ifm.height=document.documentElement.clientHeight;
-    }
-    
-    window.onresize=function(){  
-      changeFrameHeight();  
-    }   
-</script>
+  
 </html>
