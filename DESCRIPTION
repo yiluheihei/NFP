@@ -1,9 +1,13 @@
 Package: NFP
 Type: Package
 Title: Network Fingerprint Framework in R
-Version: 0.99.1
-Date: 2016-8-29
-Authors@R: c(person("Yang", "Cao","yiluheihei@gmail.com",role = c("aut", "cre")))
+Version: 0.99.2
+Date: 2016-11-19
+Authors@R: c(
+    person("Yang", "Cao",email = "yiluheihei@gmail.com",role = c("aut","cre" )),
+    person("Fei", "Li", email = "pittacus@gmail.com", role = "aut")
+    )
+Maintainer: Yang Cao <yiluheihei@gmail.com>
 Description: An implementation of the network fingerprint framework. This method 
   worked by making systematic comparisons to a set of well-studied "basic networks",
   measuring both the functional and topological similarity.  A biological could be
