@@ -1,0 +1,41 @@
+templates:
+  params:
+    bootswatch: flatly
+
+authors:
+  Yang Cao:
+
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - calc_sim_score
+  - cluster_info-methods
+  - group-methods
+  - install_data_package
+  - kegg_refnet
+  - load_KEGG_refnet
+  - net-methods
+  - NFP-class
+  - NFP
+  - NFPRefnet-class
+  - perm_score-methods
+  - plot_NFP-methods
+  - plot_NFPlist
+  - refnet_name-methods
+  - show,NFPRefnet-method
+  - show,NFP-method
+  - sub_NFP-methods
+  - subnet-methods
+
+navbar:
+  title: ~
+  type: default
+  left:
+  - text: Reference
+    href: reference/index.html
+  - text: Articles
+    href: articles/index.html
+  right:
+  - icon: fa-github fa-lg
+    href: https://github.com/yiluheihei/NFP

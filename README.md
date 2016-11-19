@@ -11,7 +11,8 @@ packages simply. More details on `biocLite` is available from
 https://www.bioconductor.org/install/#why-biocLite. Thus, users can install NFP
 install the latest released version using `biocLite` directly:
 
-```{r, eval = FALSE}
+
+```
 source("http://bioconductor.org/biocLite.R")
 biocLite("NFP")
 ```

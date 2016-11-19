@@ -3,9 +3,7 @@ Type: Package
 Title: Network Fingerprint Framework in R
 Version: 0.99.1
 Date: 2016-8-29
-Authors@R: c(person("Yang", "Cao", role = c("aut", "cre"),
-                     email = "yiluheihei@gmail.com")
-            )
+Authors@R: c(person("Yang", "Cao","yiluheihei@gmail.com",role = c("aut", "cre")))
 Description: An implementation of the network fingerprint framework. This method 
   worked by making systematic comparisons to a set of well-studied "basic networks",
   measuring both the functional and topological similarity.  A biological could be
@@ -38,3 +36,5 @@ LazyData: yes
 NeedsCompilation: no
 Packaged: 2016-8-31 08:52:23 UTC; caoyang
 RoxygenNote: 5.0.1
+URL: https://github.com/yiluheihei/NFP
+BugReports: https://github.com/yiluheihei/NFP/issues
