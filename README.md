@@ -1,5 +1,8 @@
 # NFP: Network fingerprint analysis in R
 
+[![Travis-CI Build Status](https://travis-ci.org/yiluheihei/NFP.svg?branch=master)](https://travis-ci.org/yiluheihei/NFP)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/NFP)](https://cran.r-project.org/package=NFP)
+
 This package implements the network fingerprint framework. A biomedical network is characterized as a spectrum-like vector called “network fingerprint”, which contains similarities to basic networks. This knowledge-based multidimensional characterization provides a more intuitive way to decipher molecular networks, especially for large-scale network comparisons and clustering analyses
 
 **Prerequisites**
