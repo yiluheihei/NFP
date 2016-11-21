@@ -8,9 +8,11 @@ Authors@R: c(
     person("Fei", "Li", email = "pittacus@gmail.com", role = "aut")
     )
 Maintainer: Yang Cao <yiluheihei@gmail.com>
-Description: An implementation of the network fingerprint framework. This method 
-  worked by making systematic comparisons to a set of well-studied "basic networks",
-  measuring both the functional and topological similarity.  A biological could be
+Description: An implementation of the network fingerprint framework that introduced 
+  in paper "Network fingerprint: a knowledge-based characterization of biomedical 
+  networks" (Cui, 2015) <doi:10.1038/srep13286>. This method worked by making 
+  systematic comparisons to a set of well-studied "basic networks", measuring 
+  both the functional and topological similarity.  A biological could be
   characterized as a spectrum-like vector consisting of similarities to basic 
   networks. It shows great potential in biological network study.
 Depends:
