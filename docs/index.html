@@ -36,25 +36,26 @@
   <div class="contents col-md-9">
     <div id="nfp-network-fingerprint-analysis-in-r" class="section level1">
 <div class="page-header"><h1 class="hasAnchor"><a href="#nfp-network-fingerprint-analysis-in-r" class="anchor"> </a>NFP: Network fingerprint analysis in R</h1></div>
+
 <p>This package implements the network fingerprint framework. A biomedical network is characterized as a spectrum-like vector called &ldquo;network fingerprint&rdquo;, which contains similarities to basic networks. This knowledge-based multidimensional characterization provides a more intuitive way to decipher molecular networks, especially for large-scale network comparisons and clustering analyses</p>
 <p><strong>Prerequisites</strong></p>
 <p><strong>NFP</strong> is free available on <a href="https://cran.r-project.org">CRAN</a>. To install <strong>NFP</strong>, please note especially two depencies of <strong>NFP</strong>, <strong>graph</strong> and <strong>KEGGgraph</strong> are only available from <a href="www.bioconductor.org">Bioconductor</a>. Appanrantly, function <code>install.packages</code> can not insall Biocondutor packages. There is a function <code>biocLite</code>, a wrapper around <code>install.packages</code> provided by Bioconductor, can be used to install both CRAN and Bioconductor packages simply. More details on <code>biocLite</code> is available from <a href="https://www.bioconductor.org/install/#why-biocLite" class="uri">https://www.bioconductor.org/install/#why-biocLite</a>. Thus, users can install NFP install the latest released version using <code>biocLite</code> directly:</p>
-<pre><code>source("http://bioconductor.org/biocLite.R")
-biocLite("NFP")</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">"http://bioconductor.org/biocLite.R"</span>)
+<span class="kw">biocLite</span>(<span class="st">"NFP"</span>)</code></pre></div>
 <p>or install the Bioconductor dependencies package first:</p>
-<pre class="{r,eval=false}"><code>biocLite(c("graph","KEGGgraph"))
-install.packages("NFP")</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">biocLite</span>(<span class="kw">c</span>(<span class="st">"graph"</span>,<span class="st">"KEGGgraph"</span>))
+<span class="kw">install.packages</span>(<span class="st">"NFP"</span>)</code></pre></div>
 <p>It also allows users to install the latest development version from github, which requires <strong>devtools</strong> package has been installed on your system (or can be installed using <code>install.packages("devtools")</code>). Note that devtools sometimes needs some extra non-R software on your system &ndash; more specifically, an Rtools download for Windows or Xcode for OS X. There&rsquo;s more information about devtools <a href="https://github.com/hadley/devtools">here</a>.</p>
-<pre class="{r,eval=false}"><code>## install NFP from github, require biocondutor dependencies package pre-installed
-if (!require(devtools) 
-  install.packages("devtools") 
-devtools::install_github("yiluheihei/NFP") </code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## install NFP from github, require biocondutor dependencies package pre-installed
+if (!<span class="kw">require</span>(devtools) 
+  <span class="kw">install.packages</span>(<span class="st">"devtools"</span>) 
+devtools::<span class="kw">install_github</span>(<span class="st">"yiluheihei/NFP"</span>) </code></pre></div>
 <p>After installation, you can load <strong>NFP</strong> into current workspace by typing or pasting the following codes:</p>
 <p><code>R library("NFP")</code></p>
 <p>Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository <a href="https://github.com/yiluheihei/datarepo">NFPdata</a> for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional_repositories field see The Coatless Professor <a href="http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional_repositories-field/">blog post</a>. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.</p>
-<pre><code>if (!require("NFPdata")) {
-    install_data_package()
-}</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">if (!<span class="kw">require</span>(<span class="st">"NFPdata"</span>)) {
+    <span class="kw"><a href="reference/install_data_package.html">install_data_package</a></span>()
+}</code></pre></div>
 <div id="contributing" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contributing" class="anchor"> </a>Contributing</h2>
@@ -86,7 +87,11 @@ devtools::install_github("yiluheihei/NFP") </code></pre>
 <p>GPL (&gt;= 2)</p>
 <h2>Developers</h2><ul class="list-unstyled"><li><a href="http://choyang.me">Yang Cao</a> <br><small class="roles"> Author, maintainer </small> </li>
 <li>Fei Li <br><small class="roles"> Author </small> </li>
-</ul></div>
+</ul><html><body><h2>Dev status</h2><ul class="list-unstyled"><li><a href="https://travis-ci.org/yiluheihei/NFP">
+  <img src="https://travis-ci.org/yiluheihei/NFP.svg?branch=master" alt="Travis-CI Build Status"></a></li>
+<li><a href="https://cran.r-project.org/package=NFP">
+  <img src="http://www.r-pkg.org/badges/version/NFP" alt="CRAN_Status_Badge"></a></li>
+</ul></body></html></div>
 </div>
 
 

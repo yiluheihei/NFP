@@ -25,6 +25,7 @@ options(replace.assign=TRUE,width=80)
 \author{Yang Cao, Fei Li, Haochen He}
 
 \begin{document}
+% \SweaveOpts{concordance=TRUE}
 %\SweaveOpts{concordance=TRUE}
 
 \maketitle
@@ -66,7 +67,7 @@ The three main features of {\it NFP}:
 
 {\it NFP} requires these packages: \CRANpkg{magrittr}, \CRANpkg{igraph},
 \CRANpkg{plyr}, \CRANpkg{ggplot2}, \CRANpkg{apcluster}, \CRANpkg{dplyr},
-\CRANpkg{stringr}, \Biocpkg{graph} and \Biocpkg{KEGGgraph}. To install **NFP**, please note especially two depencies of **NFP**, **graph** and **KEGGgraph** are only available from [Bioconductor](www.bioconductor.org). Appanrantly, function `install.packages` can not insall Biocondutor packages. There is a function `biocLite`, a wrapper around `install.packages`
+\CRANpkg{stringr}, \Biocpkg{graph} and \Biocpkg{KEGGgraph}. To install **NFP**, please note especially two depencies of \CRANpkg{NFP}, \Biocpkg{graph} and \Biocpkg{KEGGgraph} are only available from [Bioconductor](www.bioconductor.org). Appanrantly, function `install.packages` can not insall Biocondutor packages. There is a function `biocLite`, a wrapper around `install.packages`
 provided by Bioconductor, can be used to install both CRAN and Bioconductor
 packages simply. More details on `biocLite` is available from
 https://www.bioconductor.org/install/. Thus, users can install NFP
