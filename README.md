@@ -14,14 +14,14 @@ https://www.bioconductor.org/install/#why-biocLite. Thus, users can install NFP
 install the latest released version using `biocLite` directly:
 
 
-```
+```R
 source("http://bioconductor.org/biocLite.R")
 biocLite("NFP")
 ```
 
 or install the  Bioconductor dependencies package first:
 
-```{r,eval=FALSE} 
+```R 
 biocLite(c("graph","KEGGgraph"))
 install.packages("NFP")
 ```
@@ -29,7 +29,7 @@ install.packages("NFP")
 It also allows users to install the latest development version from github, which requires  **devtools** package has been installed on your system (or can be installed using `install.packages("devtools")`). Note that devtools sometimes needs some extra non-R software on your system -- more specifically, an Rtools download for Windows or Xcode for OS X. There's more information about devtools
 [here](https://github.com/hadley/devtools).
   
-```{r,eval=FALSE}
+```R
 ## install NFP from github, require biocondutor dependencies package pre-installed
 if (!require(devtools) 
   install.packages("devtools") 
@@ -45,7 +45,7 @@ library("NFP")
 
  Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository [NFPdata](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor [blog post](http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/). Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
 
-```
+```R
 if (!require("NFPdata")) {
     install_data_package()
 }
