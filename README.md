@@ -44,7 +44,7 @@ After installation, you can load **NFP** into current workspace by typing or pas
 library("NFP")
  ```
 
- Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository [NFPdata](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor [blog post](http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/). Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
+ Moreover, gene similarity data used in our **NFP** package is stored in a external data repository [NFPdata](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor [blog post](http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/). Thus, users must install the **NFPdata** before the networkfinger print analyis as following code.
 
 ```R
 if (!require("NFPdata")) {
