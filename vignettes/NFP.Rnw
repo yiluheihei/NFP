@@ -15,18 +15,20 @@ library(knitr)
 opts_chunk$set(
                fig.align='center', fig.show='asis',
                eval = TRUE,
-               tidy = FALSE,
+               tidy.opts=list(blank=FALSE, width.cutoff=60),
+               tidy = TRUE,
                message = FALSE,
                warning = FALSE)
-options(replace.assign=TRUE,width=80)
 @
 
-\title{NFP:Network fingerprint - a knowledge-based characterization of biomedical networks}
-\author{Yang Cao, Fei Li, Haochen He}
+\title{Network Fingerprint: a knowledge-based characterization of
+biomedical networks in R}
+
+\author{Yang Cao\footnote{yiluheihei@gmail.com}}
 
 \begin{document}
-% \SweaveOpts{concordance=TRUE}
-%\SweaveOpts{concordance=TRUE}
+
+% \sloppy  % break long line
 
 \maketitle
 
@@ -41,20 +43,18 @@ This method was used to describe the relationship between multiple disease
 networks and its related pathways, and to visually compare and parse different
 diseases by generating a fingerprint overlay. Thus, we achieve the function of
 complex network comparison based on network fingerprint on the open scientific
-computing platform \R{R}, and present {\it NFP}, an \Bioconductor{Bioconductor} package for fingerprint-based network analyzing and comparison of systems. Driven by the
-research needs of customers, {\it NFP} provides a unified interface to three
-similarity clustering algorithms. In addition, {\it NFP} can also provide multiscale
-statistical analysis and visualization, access to the specific attributes of
-different disease networks.
+computing platform \R{}, and present \CRANpkg{NFP}, an \Bioconductor{} package for fingerprint-based network analyzing and comparison of systems. Driven by the
+research needs of customers, \CRANpkg{NFP} provides a unified interface to three
+similarity clustering algorithms. In addition, \CRANpkg{NFP} can also provide multiscale statistical analysis and visualization, access to the specific attributes of different disease networks.
 
 This manual is a brief introduction to structure, functions and usage of
-{\it NFP} package. The NFP package provides a set of functions to support
+\CRANpkg{NFP} package. The NFP package provides a set of functions to support
 knowledge-based network fingerprint (NFP) framework. A biomedical network is
 characterized as a spectrum-like vector called “network fingerprint”, which
 contains similarities to basic reference networks. This framework provides a more intuitive way to decipher molecular networks, especially for large-scale network
 comparisons and clustering analyses.
 
-The three main features of {\it NFP}:
+The three main features of \CRANpkg{NFP}:
 
  \begin{itemize}
     \item Basic reference networks generation.
@@ -65,13 +65,9 @@ The three main features of {\it NFP}:
 
 \subsection{Installation}
 
-{\it NFP} requires these packages: \CRANpkg{magrittr}, \CRANpkg{igraph},
+\CRANpkg{NFP} requires these packages: \CRANpkg{magrittr}, \CRANpkg{igraph},
 \CRANpkg{plyr}, \CRANpkg{ggplot2}, \CRANpkg{apcluster}, \CRANpkg{dplyr},
-\CRANpkg{stringr}, \Biocpkg{graph} and \Biocpkg{KEGGgraph}. To install **NFP**, please note especially two depencies of \CRANpkg{NFP}, \Biocpkg{graph} and \Biocpkg{KEGGgraph} are only available from [Bioconductor](www.bioconductor.org). Appanrantly, function `install.packages` can not insall Biocondutor packages. There is a function `biocLite`, a wrapper around `install.packages`
-provided by Bioconductor, can be used to install both CRAN and Bioconductor
-packages simply. More details on `biocLite` is available from
-https://www.bioconductor.org/install/. Thus, users can install NFP
-install the latest released version using `biocLite` directly:
+\CRANpkg{stringr}, \Biocpkg{graph} and \Biocpkg{KEGGgraph}. To install \CRANpkg{NFP}, please note especially two depencies of \CRANpkg{NFP}, \Biocpkg{graph} and \Biocpkg{KEGGgraph} are only available from \href{http://bioconductor.org}{Bioconductor}. Appanrantly, function \Rfunction{install.packages} can not insall Biocondutor packages. There is a function \Rfunction{biocLite}, a wrapper around \Rfunction{install.packages} provided by Bioconductor, can be used to install both CRAN and Bioconductor packages simply. More details on \Rfunction{biocLite} is available from \url{https://www.bioconductor.org/install/}. Thus, users can install NFP install the latest released version using \Rfunction{biocLite} directly:
 
 <<install-pkg, eval=FALSE>>==
 ## install release version of NFP
@@ -88,8 +84,7 @@ biocLite(c("graph","KEGGgraph"))
 install.packages("NFP")
 @
 
-It also allows users to install the latest development version from github, which requires  **devtools** package has been installed on your system (or can be installed using `install.packages("devtools")`). Note that devtools sometimes needs some extra non-R software on your system -- more specifically, an Rtools download for Windows or Xcode for OS X. There's more information about devtools
-[here](https://github.com/hadley/devtools).
+It also allows users to install the latest development version from github, which requires  \CRANpkg{devtools} package has been installed on your system (or can be installed using \Rcode{install.packages("devtools")}. Note that devtools sometimes needs some extra non-R software on your system -- more specifically, an Rtools download for Windows or Xcode for OS X. There's more information about devtools \href{https://github.com/hadley/devtools}{here}.
 
 <<install-pkg-github, eval=FALSE>>==
 ## install NFP from github, require biocondutor dependencies package pre-installed 
@@ -98,7 +93,7 @@ if (!require(devtools))
 devtools::install_github("yiluheihei/NFP")
 @
 
-After installation, the {\it NFP} is ready to load into the current workspace
+After installation, the \CRANpkg{NFP} is ready to load into the current workspace
 by the following codes to the current workspace by typing or pasting the
 following codes:
 
@@ -107,7 +102,7 @@ library(NFP)
 @
 
 
-Moreover, gene similarity data used in our {\it NFP} package is stored in a external data repository {\it NFPdata} \url{https://github.com/yiluheihei/datarepo} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor blog post \url{http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/}. Thus, users must install the {\it NFPdata} before the networkfinger print analyis as following code.
+Moreover, gene similarity data used in our \CRANpkg{NFP} package is stored in a external data repository \Rpackage{NFPdata} \url{https://github.com/yiluheihei/datarepo} for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor \href{http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/}{blog post}. Thus, users must install the \Rpackage{NFPdata} before the networkfinger print analyis as following code.
 
 <<data_package,eval=FALSE>>==
 if (!require("NFPdata")) {
@@ -118,7 +113,7 @@ if (!require("NFPdata")) {
 \section{Analysis Pipeline: from Basic Reference Network Generation to Network
 Networkfingerprint Visualization}
 
-We will demonstrate go through an analysis pipeline to illustrate some of the main functions in {\it NFP}. This pipeline consists of several steps:
+We will demonstrate go through an analysis pipeline to illustrate some of the main functions in \CRANpkg{NFP}. This pipeline consists of several steps:
 
 \begin{enumerate}
 \item  Basic Reference Network Generation: prepare the well-known biomedical
@@ -132,8 +127,8 @@ the merged network into strongly inter-connected communities with high functiona
 modules between the two networks to be compared.
 
 \item Network fingerprint Visualization: Show the network fingerprint along all
-the reference networks. We could observe the differences of different biological
-networks' fingerprint intuitively from visualization.
+the reference networks. We could observe the differences among biological
+networks fingerprint intuitively from visualization.
 
 \end{enumerate}
 
@@ -147,10 +142,10 @@ PATHWAY has been widely used as a reference knowledge base for understanding
 biological pathways and functions of cellular processes. The knowledge from KEGG
 has proven of great value by numerous work in a wide range of fields
 \cite{KEGG}. So by default, we take KEGG pathways as basic reference
-networks in {\it NFP} by default.
+networks in \CRANpkg{NFP} by default.
 
 Function \Rfunction{load\_KEGG\_refnet} can be used to retrieve the KEGG pathway maps
-with KEGG API http://www.kegg.jp/kegg/rest/keggapi.html. In KEGG pathways, only the pathways of the map are manual drawing, and to different organisms, the map reference helps the automatic generation of organism-specific pathway for each organism. The {\tt organism} (e.g. \Rcode{organsim ="hsa"}) parameter indicate the organism name of KEGG pathway maps.
+with KEGG API \url{http://www.kegg.jp/kegg/rest/keggapi.html}. In KEGG pathways, only the pathways of the map are manual drawing, and to different organisms, the map reference helps the automatic generation of organism-specific pathway for each organism. The {\tt organism} (e.g. \Rcode{organsim ="hsa"}) parameter indicate the organism name of KEGG pathway maps.
 
 <<load_kegg_refnet, eval=TRUE, echo=TRUE>>==
 ## donot run, retrive pathway maps from KEGG database may take several minutes,
@@ -162,15 +157,15 @@ data(kegg_refnet)
 show(kegg_refnet)
 @
 
-We defined a new S4 class \textit{NFPrefnet} to store the \emph{NFP} reference
-networks. \emph{NFP} also provides five kinds of methods for this S4 class:
+We defined a new S4 class \Rclass{NFPrefnet} to store the \CRANpkg{NFP} reference
+networks. \CRANpkg{NFP} also provides five kinds of methods for this S4 class:
 
 1. \Rfunction{net}: Exact the basic reference networks of \Rclass{NFPRefnet}.
 
 2. \Rfunction{group}: Obtain the group information, group names, number and the
 size of each group,e.g. KEGG pathway database contains seven group pathway maps.
 
-3.\Rfunction{subnet}: Extract or replace parts of the {\it NFP} basic reference
+3.\Rfunction{subnet}: Extract or replace parts of the \CRANpkg{NFP} basic reference
 networks.
 
 4.\Rfunction{show}: Display of  \Rclass{NFPRefnet}.
@@ -241,8 +236,7 @@ Second, standardization: the original similarity score depends on the topologica
 
 To not affect the results of standardization and improve the efficiency of fingerprint calculation, we set limit on the permutation time (the default is 100) of background network randomization in the standardization process. Users can also adjust randomization time of background network according to their own demands for the precision of network fingerprint.
 
-{\it NFP} provides the \Rfunction{calc\_sim\_score} function for calculating the
-similarity score between two networks. As the similarity score is subjected to the size of the network, we use the maslov’s method \cite{Standardization} to randomize a network while preserving the degree distribution. The{\tt nperm} parameter is added to
+\CRANpkg{NFP} provides the \Rfunction{calc\_sim\_score} function for calculating the similarity score between two networks. As the similarity score is subjected to the size of the network, we use the maslov’s method \cite{Standardization} to randomize a network while preserving the degree distribution. The \Rcode{nperm} parameter is added to
 \Rfunction{calc\_sim\_score} refers to the permutation times (the default is 100) of
 random network while calculating the similarity score mentioned above. We define
 a S4 class \Rclass{NFP} in our package to store the calculation results of network
@@ -271,7 +265,7 @@ cluster <- cluster_info(NFP_score[[1]])
 
 \subsection{Network fingerprint visualization}
 
-{\it NFP} provides the \Rfunction{plot\_NFP\_NFP} function to visualize the network fingerprint of a single query network.
+\CRANpkg{NFP} provides the \Rfunction{plot\_NFP\_NFP} function to visualize the network fingerprint of a single query network.
 
 <<plot-nfp,echo=TRUE,eval=FALSE,fig.cap='Plot a NFP object',dev='pdf',fig.show='hold',out.width='.8\\linewidth', out.height='.7\\linewidth'>>==
 plot_NFP(NFP_score[[1]])
