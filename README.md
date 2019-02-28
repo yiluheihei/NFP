@@ -8,22 +8,22 @@ This package implements the network fingerprint framework. A biomedical network 
 
 **Prerequisites**
 
-**NFP** is free available on [CRAN](https://cran.r-project.org).  To install **NFP**, please note especially two depencies of **NFP**, **graph** and **KEGGgraph** are only available from [Bioconductor](www.bioconductor.org). Appanrantly, function `install.packages` can not insall Biocondutor packages. There is a function `biocLite`, a wrapper around `install.packages`
+**NFP** is free available on [CRAN](https://cran.r-project.org).  To install **NFP**, please note especially two depencies of **NFP**, **graph** and **KEGGgraph** are only available from [Bioconductor](www.bioconductor.org). Appanrantly, function `install.packages` can not insall Biocondutor packages. There is a function `install`, a wrapper around `install.packages`
 provided by Bioconductor, can be used to install both CRAN and Bioconductor
-packages simply. More details on `biocLite` is available from
-https://www.bioconductor.org/install/#why-biocLite. Thus, users can install NFP
-install the latest released version using `biocLite` directly:
+packages simply. Thus, users can install NFP
+install the latest released version directly as flowing:
 
 
 ```R
-source("http://bioconductor.org/biocLite.R")
-biocLite("NFP")
+if (!requireNamespace("BiocManager"))
+    install.packages("BiocManager")
+BiocManager::install("NFP")
 ```
 
 or install the  Bioconductor dependencies package first:
 
 ```R 
-biocLite(c("graph","KEGGgraph"))
+BiocManager::install(c("graph","KEGGgraph"))
 install.packages("NFP")
 ```
 
