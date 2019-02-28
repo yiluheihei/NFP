@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFPRefnet-class.R
 \docType{methods}
 \name{subnet-methods}
+\alias{subnet-methods}
 \alias{subnet}
 \alias{subnet,NFPRefnet-method}
-\alias{subnet-methods}
 \title{Subset the basic networks}
 \usage{
 subnet(object, group_name, index = NULL)
@@ -36,4 +36,3 @@ is \emph{NULL}, indicating extract the entire group basic networks.
 \seealso{
 \code{\link{NFPRefnet-class}}
 }
-

@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFP-class.R
 \docType{methods}
 \name{plot_NFP-methods}
-\alias{plot_NFP}
-\alias{plot_NFP,NFP-method}
 \alias{plot_NFP-methods}
+\alias{plot_NFP,NFP-method}
+\alias{plot_NFP}
 \title{Plot NFP results}
 \usage{
 plot_NFP(object, type = c("matchstick", "line", "point"), p_size = 2,
@@ -30,4 +30,3 @@ Function for visualization NFP results.
 \seealso{
 \code{\link{NFP-class}}
 }
-

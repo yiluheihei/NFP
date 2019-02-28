@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFP-class.R
 \docType{methods}
 \name{cluster_info-methods}
+\alias{cluster_info-methods}
 \alias{cluster_info}
 \alias{cluster_info,NFP-method}
-\alias{cluster_info-methods}
 \title{Extract the cluster information of \emph{NFP}.}
 \usage{
 cluster_info(object)
@@ -24,4 +24,3 @@ This function extract the cluster information of network fingerprint.
 \seealso{
 \code{\link{NFP}}
 }
-

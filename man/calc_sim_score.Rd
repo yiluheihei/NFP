@@ -28,4 +28,3 @@ between a network and the reference network.
 \seealso{
 \code{\link{NFPRefnet-class}}.
 }
-

@@ -9,7 +9,7 @@
 #' @importFrom plyr laply llply
 #' @importFrom KEGGgraph getKGMLurl parseKGML2Graph
 #' @importFrom igraph igraph.from.graphNEL V get.data.frame graph.data.frame V<- rewire keeping_degseq gsize
-#' induced.subgraph as_adj
+#' induced.subgraph as_adj set.vertex.attribute
 #' @importFrom apcluster apcluster preferenceRange
 #' @importFrom ggplot2 ggplot geom_point geom_segment theme scale_x_discrete
 #' element_text geom_line aes xlab ylab guides guide_legend

@@ -8,4 +8,3 @@
 \description{
 This package implementation the applications of network finger print method.
 }
-

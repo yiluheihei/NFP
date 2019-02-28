@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFPRefnet-class.R
 \docType{methods}
 \name{group-methods}
+\alias{group-methods}
 \alias{group}
 \alias{group,NFPRefnet-method}
-\alias{group-methods}
 \title{Group information of \emph{NFPRefnet}}
 \usage{
 group(object)
@@ -24,4 +24,3 @@ This function extract the group information NFP basic networks.
 \seealso{
 \code{\link{NFPRefnet-class}}
 }
-

@@ -41,6 +41,6 @@ License: GPL (>= 2)
 LazyData: yes
 NeedsCompilation: no
 Packaged: 2016-8-31 08:52:23 UTC; caoyang
-RoxygenNote: 5.0.1
+RoxygenNote: 6.1.1
 URL: https://github.com/yiluheihei/NFP
 BugReports: https://github.com/yiluheihei/NFP/issues

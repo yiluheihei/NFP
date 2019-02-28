@@ -25,4 +25,3 @@ The NFPdata Package contains data that from kegg gene similarity
 install_data_package()
 }
 }
-

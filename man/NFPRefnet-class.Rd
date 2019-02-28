@@ -35,9 +35,9 @@ with \emph{Refnet}.}
        \code{\link[methods]{show}}}
    }}
 }}
+
 \seealso{
 \code{\link{show-methods}},
 \code{\link{net-methods}}, \code{\link{refnet_name-methods}},
 \code{\link{group-methods}}, \code{\link{subnet-methods}}
 }
-

@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFPRefnet-class.R
 \docType{methods}
 \name{refnet_name-methods}
+\alias{refnet_name-methods}
 \alias{refnet_name}
 \alias{refnet_name,NFPRefnet-method}
-\alias{refnet_name-methods}
 \title{Names of basic networks}
 \usage{
 refnet_name(object)
@@ -23,4 +23,3 @@ This function extract names of NFP basic networks.
 \seealso{
 \code{\link{NFPRefnet-class}}
 }
-

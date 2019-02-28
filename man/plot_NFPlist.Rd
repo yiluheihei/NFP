@@ -17,4 +17,3 @@ Function for visualization multiple NFPs.
 \seealso{
 \code{\link{NFP-class}}
 }
-

@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFP-class.R
 \docType{methods}
 \name{sub_NFP-methods}
+\alias{sub_NFP-methods}
 \alias{sub_NFP}
 \alias{sub_NFP,NFP-method}
-\alias{sub_NFP-methods}
 \title{subset of NFP object}
 \usage{
 sub_NFP(object, i)
@@ -26,4 +26,3 @@ This function extract the subsets of NFP-class.
 \seealso{
 \code{\link{NFP-class}}
 }
-

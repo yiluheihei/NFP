@@ -2,8 +2,8 @@
 % Please edit documentation in R/NFP-class.R
 \docType{methods}
 \name{show,NFP-method}
-\alias{show}
 \alias{show,NFP-method}
+\alias{show}
 \alias{show-methods}
 \title{The show generic function}
 \usage{
@@ -15,4 +15,3 @@
 \description{
 Show a shor summary for NFP object, see \code{\link[methods]{show}}.
 }
-

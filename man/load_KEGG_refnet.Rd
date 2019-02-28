@@ -27,4 +27,3 @@ basic networks by creating a new \emph{NFPRefnet} object.
 \seealso{
 \code{\link{NFPRefnet-class}}
 }
-

@@ -15,4 +15,3 @@
 \description{
 show method short for NFPRefnet object, see \code{\link[methods]{show}}
 }
-

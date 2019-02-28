@@ -35,9 +35,9 @@ biological network based on one reference networks.
        \code{\link[methods]{show}}}
    }}
 }}
+
 \seealso{
 \code{\link{show-methods}},
 \code{\link{plot-methods}}, \code{\link{perm_score-methods}},
 \code{\link{cluster_info-methods}}, \code{\link{sub_NFP-methods}}
 }
-

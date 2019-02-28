@@ -10,4 +10,3 @@ A dataset containing the human signal pathway maps of KEGG
 \seealso{
 \code{\link{NFPRefnet-class}}
 }
-

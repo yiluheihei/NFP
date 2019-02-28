@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFPRefnet-class.R
 \docType{methods}
 \name{net-methods}
+\alias{net-methods}
 \alias{net}
 \alias{net,NFPRefnet-method}
-\alias{net-methods}
 \title{Basic networks of \emph{NFPRefnet} class}
 \usage{
 net(object)
@@ -23,4 +23,3 @@ This function extract the basic networks of NFPRefnet class.
 \seealso{
 \code{\link{NFPRefnet-class}}
 }
-

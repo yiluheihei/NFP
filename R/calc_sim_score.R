@@ -156,6 +156,13 @@ calc_sim_score <- function(net,NFPnet,nperm = 100, ...){
   if (class(net) != 'graphNEL')
     stop("Please ensure your network is in graphNEL class")
   net <- igraph.from.graphNEL(net)
+  
+  # delete the prompt, such as "ENTREZID", 
+  # node names must only contain the number of entrez id, for the nodes name 
+  # of refnet 
+  corrected_node <- str_replace(V(net)$name, "[^\\d]+", "")
+  net <- set.vertex.attribute(net, "name", value = corrected_node)
+  
   refnet <- net(NFPnet)
   refnet <- refnet %>%
     llply(. %>% llply( igraph.from.graphNEL))

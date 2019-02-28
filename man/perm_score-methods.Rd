@@ -2,9 +2,9 @@
 % Please edit documentation in R/NFP-class.R
 \docType{methods}
 \name{perm_score-methods}
+\alias{perm_score-methods}
 \alias{perm_score}
 \alias{perm_score,NFP-method}
-\alias{perm_score-methods}
 \title{Extract the randomized similarity score}
 \usage{
 perm_score(object)
@@ -24,4 +24,3 @@ This function extract the randomized similarity score for standardization.
 \seealso{
 \code{\link{NFP}}
 }
-
