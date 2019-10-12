@@ -4,3 +4,4 @@
 *.txt
 ..Rcheck
 .DS_Store
+inst/doc

@@ -32,9 +32,9 @@ Imports:
 Suggests:
     knitr,
     testthat,
-    BiocStyle,
     graphite,
-    NFPdata
+    NFPdata,
+    rmarkdown
 Additional_repositories: https://yiluheihei.github.io/datarepo/
 VignetteBuilder: knitr
 License: GPL (>= 2)
