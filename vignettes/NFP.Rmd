@@ -86,7 +86,7 @@ Networkfingerprint Visualization
 
 We will demonstrate go through an analysis pipeline to illustrate some of the main functions in *NFP*. This pipeline consists of several steps:
 
-1. Basic Reference Network Generation: prepare the well-known biomedical netowks as the NFP framework reference networks. Several pathway databases have been developed for biological network research, e.g. KEGG, Reactome - ([www.reactome.org](www.reactome.org)). All of this pathway databases is well-stuied and can be used as the basic reference networks of NFP.
+1. Basic Reference Network Generation: prepare the well-known biomedical netowks as the NFP framework reference networks. Several pathway databases have been developed for biological network research, e.g. KEGG, Reactome - ([https://reactome.org](https://reactome.org)). All of this pathway databases is well-stuied and can be used as the basic reference networks of NFP.
 1. Network fingerprint calculation: The similarity between two biomedical networks is calculated based on the following intition: grouping the nodes in the merged network into strongly inter-connected communities with high functional similarity score between intra-community nodes in different networks The functional similarity was measured based on GO [@ashburner2000gene]. And we employed affinity propagation (AP) [@frey2007clustering] clustering algorithm to detect the aligned functional modules between the two networks to be compared.
 1. Network fingerprint Visualization: Show the network fingerprint along all the reference networks. We could observe the differences among biological networks fingerprint intuitively from visualization.
 
