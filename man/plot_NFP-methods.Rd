@@ -7,11 +7,19 @@
 \alias{plot_NFP}
 \title{Plot NFP results}
 \usage{
-plot_NFP(object, type = c("matchstick", "line", "point"), p_size = 2,
-  l_size = 0.5)
+plot_NFP(
+  object,
+  type = c("matchstick", "line", "point"),
+  p_size = 2,
+  l_size = 0.5
+)
 
-\S4method{plot_NFP}{NFP}(object, type = c("matchstick", "line", "point"),
-  p_size = 2, l_size = 0.5)
+\S4method{plot_NFP}{NFP}(
+  object,
+  type = c("matchstick", "line", "point"),
+  p_size = 2,
+  l_size = 0.5
+)
 }
 \arguments{
 \item{object, }{\code{NFP} class}

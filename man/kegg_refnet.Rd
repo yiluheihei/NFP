@@ -3,7 +3,9 @@
 \name{kegg_refnet}
 \alias{kegg_refnet}
 \title{Human KEGG signal pathway maps}
-\format{A NFPRefnet object, more details see \code{\link{NFPRefnet-class}}}
+\format{
+A NFPRefnet object, more details see \code{\link{NFPRefnet-class}}
+}
 \description{
 A dataset containing the human signal pathway maps of KEGG
 }

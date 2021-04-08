@@ -3,7 +3,6 @@
 \docType{package}
 \name{NFP}
 \alias{NFP}
-\alias{NFP-package}
 \title{The NFP package}
 \description{
 This package implementation the applications of network finger print method.
