@@ -38,6 +38,7 @@ Additional_repositories: https://yiluheihei.github.io/datarepo/
 VignetteBuilder: knitr
 License: GPL (>= 2)
 LazyData: yes
+LazyDataCompression: xz
 NeedsCompilation: no
 RoxygenNote: 6.1.1
 URL: https://github.com/yiluheihei/NFP
