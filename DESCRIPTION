@@ -1,7 +1,7 @@
 Package: NFP
 Type: Package
 Title: Network Fingerprint Framework in R
-Version: 0.99.3
+Version: 0.99.4
 Authors@R: c(
     person("Yang", "Cao",email = "caoyang.name@gmail.com",role = c("aut","cre" )),
     person("Fei", "Li", email = "pittacus@gmail.com", role = "aut")
