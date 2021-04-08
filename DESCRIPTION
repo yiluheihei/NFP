@@ -6,7 +6,7 @@ Authors@R: c(
     person("Yang", "Cao",email = "caoyang.name@gmail.com",role = c("aut","cre" )),
     person("Fei", "Li", email = "pittacus@gmail.com", role = "aut")
     )
-Maintainer: Yang Cao <yiluheihei@gmail.com>
+Maintainer: Yang Cao <caoyang.name@gmail.com>
 Description: An implementation of the network fingerprint framework that introduced 
   in paper "Network fingerprint: a knowledge-based characterization of biomedical 
   networks" (Cui, 2015) <doi:10.1038/srep13286>. This method worked by making 
