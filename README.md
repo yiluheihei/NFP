@@ -1,7 +1,7 @@
 # NFP: Network fingerprint analysis in R
 
 [![Travis-CI Build Status](https://travis-ci.org/yiluheihei/NFP.svg?branch=master)](https://travis-ci.org/yiluheihei/NFP)
-[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/NFP)](https://cran.r-project.org/package=NFP)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/NFP)](https://cran.r-project.org/package=NFP)
 [![Coverage Status](https://img.shields.io/codecov/c/github/yiluheihei/NFP/master.svg)](https://codecov.io/github/yiluheihei/NFP?branch=master)
 
 This package implements the network fingerprint framework. A biomedical network is characterized as a spectrum-like vector called “network fingerprint”, which contains similarities to basic networks. This knowledge-based multidimensional characterization provides a more intuitive way to decipher molecular networks, especially for large-scale network comparisons and clustering analyses
@@ -28,7 +28,7 @@ install.packages("NFP")
 ```
 
 It also allows users to install the latest development version from github, which requires  **devtools** package has been installed on your system (or can be installed using `install.packages("devtools")`). Note that devtools sometimes needs some extra non-R software on your system -- more specifically, an Rtools download for Windows or Xcode for OS X. There's more information about devtools
-[here](https://github.com/hadley/devtools).
+[here](https://github.com/r-lib/devtools).
   
 ```R
 ## install NFP from github, require biocondutor dependencies package pre-installed
@@ -44,7 +44,7 @@ After installation, you can load **NFP** into current workspace by typing or pas
 library("NFP")
  ```
 
- Moreover, gene similarity data used in our **NFP** package is stored in a external data repository [NFPdata](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor [blog post](http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/). Thus, users must install the **NFPdata** before the networkfinger print analyis as following code.
+ Moreover, gene similarity data used in our **NFP** package is stored in a external data repository [NFPdata](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the Additional\_repositories field see The Coatless Professor [blog post](https://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional\_repositories-field/). Thus, users must install the **NFPdata** before the networkfinger print analyis as following code.
 
 ```R
 if (!require("NFPdata")) {
@@ -63,5 +63,5 @@ For more complicated changes, you will have to manually create a pull request af
 
 ## Reference
 
-[Cui X, He H, He F, et al. Network fingerprint: a knowledge-based characterization of biomedical networks. Scientific reports, 2015, 5.](http://www.nature.com/articles/srep13286)
+[Cui X, He H, He F, et al. Network fingerprint: a knowledge-based characterization of biomedical networks. Scientific reports, 2015, 5.](https://www.nature.com/articles/srep13286)
 

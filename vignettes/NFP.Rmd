@@ -40,24 +40,24 @@ similarity scoring.
 
 ### Installation
 
-*NFP* requires these packages: *magrittr*, *igraph*, *plyr*, *ggplot2*, *apcluster*, *dplyr*, *stringr*, *graph* and *KEGGgraph*. To install *NFP*, please note especially two depencies of *NFP*, *graph* and *KEGGgraph* are only available from [Bioconductor](http://bioconductor.org). Appanrantly, function `install.packages()`can not insall Biocondutor packages. There is a `biocLite()`, a wrapper around `install.packages()` provided by Bioconductor, can be used to install both CRAN and Bioconductor packages simply. More details on `biocLite()` is available from [https://www.bioconductor.org/install/](https://www.bioconductor.org/install/). Thus, users can install NFP install the latest released version using `biocLite()` directly:
+*NFP* requires these packages: *magrittr*, *igraph*, *plyr*, *ggplot2*, *apcluster*, *dplyr*, *stringr*, *graph* and *KEGGgraph*. To install *NFP*, please note especially two depencies of *NFP*, *graph* and *KEGGgraph* are only available from [Bioconductor](https://bioconductor.org). Appanrantly, function `install.packages()` can not insall Biocondutor packages. There is a `biocLite()`, a wrapper around `install.packages()` provided by Bioconductor, can be used to install both CRAN and Bioconductor packages simply. More details on `biocLite()` is available from [https://www.bioconductor.org/install/](https://www.bioconductor.org/install/). Thus, users can install NFP install the latest released version using `biocLite()` directly:
   
 ```{r install-pkg, eval=FALSE}
 ## install release version of NFP
-source("http://bioconductor.org/biocLite.R")
-biocLite("NFP")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("NFP")
 ```
   
 or install the  Bioconductor dependencies package first:
   
 ```{r nstall-pkg2, eval=FALSE}
 ## install release version of NFP
-source("http://bioconductor.org/biocLite.R")
-biocLite(c("graph","KEGGgraph"))
+BiocManager::install(c("graph","KEGGgraph"))
 install.packages("NFP")
 ```
   
-It also allows users to install the latest development version from github, which requires  *devtools* package has been installed on your system or can be installed using `install.packages("devtools")`. Note that devtools sometimes needs some extra non-R software on your system -- more specifically, an Rtools download for Windows or Xcode for OS X. There's more information about devtools [here](https://github.com/hadley/devtools).
+It also allows users to install the latest development version from github, which requires  *devtools* package has been installed on your system or can be installed using `install.packages("devtools")`. Note that devtools sometimes needs some extra non-R software on your system -- more specifically, an Rtools download for Windows or Xcode for OS X. There's more information about devtools [here](https://github.com/r-lib/devtools).
 
 ```{r install-pkg-github, eval=FALSE}
 ## install NFP from github, require biocondutor dependencies package pre-installed 
@@ -73,7 +73,7 @@ library(NFP)
 ```
 
 
-Moreover, gene similarity data used in our *NFP* package is stored in a external data repository *NFPdata* [https://github.com/yiluheihei/datarepo](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the `Additional_repositories` field see The Coatless Professor [blog post](http://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional_repositories-field/). Thus, users must install the *NFPdata* before the networkfinger print analyis as following code.
+Moreover, gene similarity data used in our *NFP* package is stored in a external data repository *NFPdata* [https://github.com/yiluheihei/datarepo](https://github.com/yiluheihei/datarepo) for the large size (about 16 MB). More details on how to construct External Data Repositories using the `Additional_repositories` field see The Coatless Professor [blog post](https://thecoatlessprofessor.com/programming/r-data-packages-in-external-data-repositories-using-the-additional_repositories-field/). Thus, users must install the *NFPdata* before the networkfinger print analyis as following code.
 
 ```{r eval=FALSE}
 if (!require("NFPdata")) {
@@ -94,7 +94,7 @@ We will demonstrate go through an analysis pipeline to illustrate some of the ma
 
 The basic idea of calculating the network fingerprint is to have the biomedical networks map to well-studied basic networks. KEGG PATHWAY is a collection of manually drawn pathway maps representing our knowledge on the molecular interaction and reaction networks. Since its first introduction in 1995, KEGG PATHWAY has been widely used as a reference knowledge base for understanding biological pathways and functions of cellular processes. The knowledge from KEGG has proven of great value by numerous work in a wide range of fields [@kanehisa2007kegg]. So by default, we take KEGG pathways as basic reference networks in *NFP* by default.
 
-Function `load_KEGG_refnet()` can be used to retrieve the KEGG pathway maps with KEGG API [http://www.kegg.jp/kegg/rest/keggapi.html](http://www.kegg.jp/kegg/rest/keggapi.html). In KEGG pathways, only the pathways of the map are manual drawing, and to different organisms, the map reference helps the automatic generation of organism-specific pathway for each organism. The `organism` (e.g. `organsim ="hsa"`) parameter indicate the organism name of KEGG pathway maps.
+Function `load_KEGG_refnet()` can be used to retrieve the KEGG pathway maps with KEGG API [https://www.kegg.jp/kegg/rest/keggapi.html](https://www.kegg.jp/kegg/rest/keggapi.html). In KEGG pathways, only the pathways of the map are manual drawing, and to different organisms, the map reference helps the automatic generation of organism-specific pathway for each organism. The `organism` (e.g. `organsim ="hsa"`) parameter indicate the organism name of KEGG pathway maps.
 
 ```{r eval=TRUE, echo=TRUE}
 ## donot run, retrive pathway maps from KEGG database may take several minutes,
